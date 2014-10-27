@@ -21,6 +21,6 @@ Route::post('store', 'SessionsController@store');
 Route::resource('users.password', 'PasswordController');
 
 
-Route::group(array('before' => 'auth'), function () {
+Route::group(array('before' => 'auth.basic'), function () {
     Route::resource('users', 'UsersController');
 });
