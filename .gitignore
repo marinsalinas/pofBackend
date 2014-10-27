@@ -5,15 +5,4 @@ composer.lock
 .env.*.php
 .env.php
 .DS_Store
-.idea
 Thumbs.db
-
-.idea/scopes/scope_settings.xml
-.idea/deployment.xml
-.idea/.name
-.idea/pofBackend.iml
-.idea/encodings.xml
-.idea/scopes
-.idea/modules.xml
-.idea/misc.xml
-.idea/vcs.xml
