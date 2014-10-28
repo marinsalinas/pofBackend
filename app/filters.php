@@ -70,6 +70,9 @@ Route::filter('auth.token', function($route, $request){
     }
 
 
+    Auth::setUser($user);
+
+
 
 });
 
