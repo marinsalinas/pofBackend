@@ -6,10 +6,9 @@ class PasswordController extends \BaseController
     function __construct()
     {
         //Con esto le digo que no le aplique el filtro a la funcion store.
-        $this->beforeFilter('auth.token', array('only' => array('store')));
+        $this->beforeFilter('auth.token', array('only' => array('destroy')));
         // ...
     }
-
 
     //Crea la Session y regresa informacion del Usuario
     public function  store()
@@ -26,6 +25,9 @@ class PasswordController extends \BaseController
 
     //Simplemente Destruye la sesion.
     public function destroy(){
+        $user = Auth::user();
+        $user->api_token = null;
+        $user->save();
         Auth::logout();
         return Response::json(array('error'=>false, 'message'=>'Session Cerrada'), 200);
     }
