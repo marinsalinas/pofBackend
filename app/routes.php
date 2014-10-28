@@ -18,9 +18,12 @@ Route::get('logout', 'SessionsController@destroy');
 Route::post('store', 'SessionsController@store');
 
 
-Route::resource('users.password', 'PasswordController');
 
 
-Route::group(array('before' => 'auth.basic'), function () {
+Route::group(array('prefix' => 'api/v1','before' => 'auth.basic'), function () {
+    Route::resource('users.password', 'PasswordController');
+});
+
+Route::group(array('before' => 'auth'), function () {
     Route::resource('users', 'UsersController');
 });
