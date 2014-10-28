@@ -3,12 +3,22 @@
 
 class PasswordController extends \BaseController
 {
+    function __construct()
+    {
+        //Con esto le digo que no le aplique el filtro a la funcion store.
+        $this->beforeFilter('auth.token', array('only' => array('store')));
+        // ...
+    }
+
+
     //Crea la Session y regresa informacion del Usuario
     public function  store()
     {
 
-        if (Auth::attempt(Input::only('username', 'password'))) {
+        if (Auth::once(Input::only('username', 'password'))) {
             $user = User::whereUsername(Input::get('username'))->first();
+            $user->api_token = hash('sha256', Str::random(10), false);
+            $user->save();
             return Response::json(array('error'=>false, 'user'=>$user), 200);
         }
         return Response::json(array('error'=>true, 'message'=>'Datos Invalidos'), 401);

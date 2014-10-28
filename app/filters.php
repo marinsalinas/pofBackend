@@ -56,6 +56,23 @@ Route::filter('auth.basic', function()
 	return Auth::basic('username');
 });
 
+Route::filter('auth.token', function($route, $request){
+    $payload = $request->header('X-Auth-Token');
+    $user = User::where('api_token', $payload)->first();
+
+    if(!$payload || !$user){
+        $response = Response::json([
+            'error'=> true,
+            'message' => 'No Autenticado'
+        ],401);
+        $response->header('Content-Type', 'application/json');
+        return $response;
+    }
+
+
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
