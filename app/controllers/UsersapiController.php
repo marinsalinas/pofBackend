@@ -1,6 +1,14 @@
 <?php
 
 class UsersapiController extends \BaseController{
+
+    function __construct() {
+        //Con esto le digo que no le aplique el filtro a la funcion store.
+        $this->beforeFilter('auth.basic', array('except' => array('store')));
+        // ...
+    }
+
+
     public function index(){
         return Response::json(array('error' => false, 'user'=> Auth::user()), 200);
     }

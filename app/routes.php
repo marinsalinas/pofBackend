@@ -23,13 +23,9 @@ Route::group(array('before' => 'auth'), function () {
 
 
 //Rutas Para API RESTFUL
-
-/**
- * Esta ruta no tendra autenticación basica es solo para saber si el usuario tiene la Session
- */
-Route::post('api/v1/login', 'PasswordController@store');
-Route::get('api/v1/logout', 'PasswordController@destroy');
-Route::group(array('prefix' => 'api/v1','before' => 'auth.basic'), function () {
-    Route::resource('users', 'UsersapiController');
+Route::group(array('prefix' => 'api/v1'), function () {
+    Route::post('login', 'PasswordController@store');
+    Route::get('logout', 'PasswordController@destroy');
+    Route::resource('users','UsersapiController');
 });
 
