@@ -26,6 +26,7 @@ Route::group(array('before' => 'auth'), function () {
 Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('login', 'PasswordController@store');
     Route::get('logout', 'PasswordController@destroy');
+    //El before => auth.basic se encuentra en el contructor de la clase UserapiController
     Route::resource('users','UsersapiController');
 });
 
