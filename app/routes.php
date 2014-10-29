@@ -9,14 +9,17 @@ Route::get('/', function () {
     return View::make('users.index');
 })->before('auth');*/
 
-Route::get('web', 'WebController@log');
+Route::resource('restaurant', 'RestaurantController');
 
+
+//Sessions Controller
 Route::get('login', 'SessionsController@create');
 
 Route::get('logout', 'SessionsController@destroy');
 
 Route::post('store', 'SessionsController@store');
 
+//users Controler
 Route::group(array('before' => 'auth'), function () {
     Route::resource('users', 'UsersController');
 });
