@@ -18,7 +18,8 @@ class PasswordController extends \BaseController
             $user = User::whereUsername(Input::get('username'))->first();
             $user->api_token = hash('sha256', Str::random(10), false);
             $user->save();
-            return Response::json(array('error'=>false, 'user'=>$user, 'address'=>$user->address()), 200);
+            $user->address;
+            return Response::json(array('error'=>false, 'user'=>$user), 200);
         }
         return Response::json(array('error'=>true, 'message'=>'Datos Invalidos'), 401);
     }

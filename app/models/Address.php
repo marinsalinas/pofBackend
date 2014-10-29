@@ -8,14 +8,14 @@
 
 class Address extends Eloquent{
 
-    protected $table = 'Address';
+    protected $table = 'address';
 
 
-
+    protected $guarded = array('id');
 
 
     public function user(){
-        return $this->belongsTo('User', 'idUser');
+        return $this->belongsTo('User', 'user_id');
     }
 
 
