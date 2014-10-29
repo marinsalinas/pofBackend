@@ -26,9 +26,13 @@ class Address extends Eloquent{
 
     public function getLocationAttribute(){
         $id = $this->attributes['id'];
-        $wkt = DB::table($this->table)->find($id, array(DB::raw('AsText(location) AS location')));
-        $location = $wkt->location;
+        $wkt = DB::table($this->table)->find($id, array(DB::raw('Y(location) AS latitude, X(location) AS longitude')));
+        $location = $wkt;
         return $location;
+    }
+
+    public function setLocationAttribute($value){
+        $this->attributes['location'] = DB::raw("GeomFromText('POINT({$value['lng']} {$value['lat']})')");
     }
 
 
