@@ -6,14 +6,6 @@ class UsersController extends \BaseController
     public function index()
     {
 
-        //$user = DB::table('user')->where('user','=','oscar')->get();
-        //return $user;
-        // $user = new User;
-        // $user-> user =  'juan';
-        // $user->password='acosta';
-        //$user-> save();
-        //return User::all();
-
         $users = User::all();
 
         return View::make('users/index', ['users' => $users]);
