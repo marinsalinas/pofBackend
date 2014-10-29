@@ -10,14 +10,25 @@ class Address extends Eloquent{
 
     protected $table = 'address';
 
+    protected $fillable=array('label', 'description', 'textaddress','location');
+
+    protected $append = array('location');
 
     protected $guarded = array('id');
 
-    protected $hidden = array('location');
+    //protected $hidden = array('location');
 
 
     public function user(){
         return $this->belongsTo('User', 'user_id');
+    }
+
+
+    public function getLocationAttribute(){
+        $id = $this->attributes['id'];
+        $wkt = DB::table($this->table)->find($id, array(DB::raw('AsText(location) AS location')));
+        $location = $wkt->location;
+        return $location;
     }
 
 
