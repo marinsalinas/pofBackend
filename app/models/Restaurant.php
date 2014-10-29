@@ -3,9 +3,9 @@
 class Restaurant extends Eloquent
 {
 
-    protected $table = 'Restaurant';
+    protected $table = 'restaurants';
 
-    protected $fillable = ['restName','location','onlyCash'];
+    protected $fillable = ['name','textaddress','onlycash','type','description'];
 
 
 }
