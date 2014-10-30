@@ -21,7 +21,7 @@ class SessionsController extends BaseController
             return Redirect::back()->withInput();
         }
 
-        return 'Acceso incorrecto';
+        return Redirect::to('login');
 
     }
 
