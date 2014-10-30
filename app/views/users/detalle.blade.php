@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('contenido')
-<div style="text-align: left">{{link_to('users','Atras')}}</div>
 
 <center>
 <h3>{{link_to("users")}}</h3>
