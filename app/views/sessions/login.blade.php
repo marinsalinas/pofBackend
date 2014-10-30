@@ -10,7 +10,7 @@
 
 </div></br>
                                 <div class="form-group">
-{{Form::password('password',null,array('class'=>'form-control','placeholder'=>'Password'))}}
+{{Form::password('password',array('class'=>'form-control','placeholder'=>'Password'))}}
 </div></br>
                                 <div class="form-group">
 
