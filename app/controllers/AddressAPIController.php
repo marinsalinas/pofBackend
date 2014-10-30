@@ -4,6 +4,7 @@ class AddressAPIController extends \BaseController {
 
 
     function __construct() {
+
         //Con esto le digo que no le aplique el filtro a la funcion store.
         $this->beforeFilter('auth.token');
         // ...

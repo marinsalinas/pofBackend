@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>Bienvenido</title>
 </head>
 <body background="img/sb.jpg">
 @yield('contenido')

@@ -1,25 +1,22 @@
-@extends('layouts.master')
-@section('contenido')
+@extends('layouts.login')
+@section('login')
 
 
 {{Form::open(['url' => 'store'])}}
 <div style="text-align: center">
-<div>
+                                <div class="form-group">
 
-{{Form::label('username','Usuario')}}
-{{Form::text('username')}}
+{{Form::text('username', null,array('class'=>'form-control','placeholder'=>'Username'))}}
 
 </div></br>
-<div>
-{{Form::label('password','Password')}}
-{{Form::password('password')}}
+                                <div class="form-group">
+{{Form::password('password',null,array('class'=>'form-control','placeholder'=>'Password'))}}
 </div></br>
-<div>
+                                <div class="form-group">
 
-{{Form::submit('Acceder')}}
+{{Form::submit('Acceder',array('class'=>'btn btn-lg btn-success btn-block'))}}
 
 </div>
 </div>
-
 {{Form::close()}}
 @stop
