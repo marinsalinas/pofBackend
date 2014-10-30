@@ -2,6 +2,14 @@
 
 class RestaurantAPIController extends \BaseController {
 
+    function __construct() {
+        //Con esto le digo que no le aplique el filtro a la funcion store.
+        $this->beforeFilter('auth.token');
+        // ...
+    }
+
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +17,7 @@ class RestaurantAPIController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        return Response::json(Restaurant::all(),200);
 	}
 
 
