@@ -5,7 +5,7 @@ class Restaurant extends Eloquent
 
     protected $table = 'restaurants';
 
-    protected $fillable = ['name','textaddress','onlycash','type','description', 'location'];
+    protected $fillable = array('name','textaddress','onlycash','type','description', 'location');
 
     protected $append = array('location');
 
