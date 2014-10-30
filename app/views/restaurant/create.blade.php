@@ -20,7 +20,8 @@
                                     {{$errors->first('textaddress')}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::input('text','onlycash', null,array('class'=>'form-control','placeholder'=>'Solo Efectivo (1 o 0)'))}}
+                                    {{Form::label('onlycash','Solo acepta efectivo ? : ')}}
+                                    {{Form::select('onlycash', array('No','Si'));}}
                                     {{$errors->first('onlycash')}}
                                 </div>
                                 <div class="form-group">

@@ -26,8 +26,10 @@
               <!-- /.panel-heading -->
               <div class="panel-body">
                   <ul>
-                      <li>{{$restaurant->name}}</li>
-                      <li>{{$restaurant->textaddress}}</li>
+                      <li>Nombre: {{$restaurant->name}}</li>
+                      <li>Direccion: {{$restaurant->textaddress}}</li>
+                      <li>Tipo de Restaurante: {{$restaurant->type}}</li>
+                      <li>Descripcion: {{$restaurant->description}}</li>
                   </ul>
               </div>
               <!-- /.panel-body -->
