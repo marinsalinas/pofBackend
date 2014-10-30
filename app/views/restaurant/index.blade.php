@@ -1,17 +1,45 @@
-@extends('layouts.master')
+@extends('layouts.theme')
 
-@section('contenido')
+    @section('doce')
+        <div class="col-lg-12">
+            <h1 class="page-header">Restaurantes</h1>
+        </div>
+    @stop
+@section('ocho')
 
-<div style="text-align: right; position: relative">{{link_to('restaurant/create','Dar de alta un restaurante')}}</div>
-<div style="text-align: left">{{link_to('logout','Logout')}}</div>
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Timeline
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
 
-  <div><h1> Todos los Restaurantes</h1></div>
-  <div style="width: 100%">
-  @foreach($restaurants as $restaurant)
+@stop
 
-<ul>
-    <li> {{ link_to ("restaurant/{$restaurant->name}", $restaurant->name)}}</li>
-</ul>
-  @endforeach
-  </div>
+  @section('cuatro')
+                  <div class="col-lg-4">
+
+      <h1 style="text-align: center">Restaurantes</h1>
+        @foreach($restaurants as $restaurant)
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <i class="fa fa-users"></i> {{$restaurant->name}}
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                  <ul>
+                      <li>{{$restaurant->name}}</li>
+                      <li>{{$restaurant->textaddress}}</li>
+                  </ul>
+              </div>
+              <!-- /.panel-body -->
+          </div>
+        @endforeach
+        </div>
   @stop

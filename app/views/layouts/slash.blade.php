@@ -25,26 +25,40 @@
 
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand">Path of the food</a>
             </div>
             <!-- /.navbar-header -->
             <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="../users"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
+                            <a href="../users"><i class="fa fa-home"></i> Inicio</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="users/create">Alta de usuarios</a>
+                                    <a href="../users/create"> Alta de usuarios</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="logout"><i class="fa fa-wrench fa-fw"></i>Logout</a>
+                            <a href="../restaurant"><i class="fa fa-coffee"></i> Restaurantes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="../restaurant">Ver restaurantes</a>
+                                </li>
+                                <li>
+                                    <a href="../restaurant/create"> Alta de Restaurante</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
+                        </li>
+                        <li>
+                            <a href="../logout"><i class="fa fa-cog"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->
