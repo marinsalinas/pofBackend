@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Administracion</title>
+    <title>Start Bootstrap - SB Admin Version 2.0 Demo</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- Core CSS - Include with every page -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../css/simple-sidebar.css" rel="stylesheet">
+    <!-- Page-Level Plugin CSS - Blank -->
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -30,59 +23,53 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-{{link_to('users','Inicio ')}}                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Restaurantes</a>
-                </li>
-                <li>
-                    <a href="#">Pedidos</a>
-                </li>
-                <li>
-                        {{link_to('users/create','Dar de alta un usuario')}}
-                </li>
-                <li>
-                    <a href="#">Extra</a>
-                </li>
-                <li>
-                    <a href="#">Extra</a>
-                </li>
-                <li>
-                    {{link_to('logout','Logout')}}
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+            </div>
+            <!-- /.navbar-header -->
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="../users"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="users/create">Alta de usuarios</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="logout"><i class="fa fa-wrench fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
 
-        <!-- Page Content -->
-                                               @yield('contenido')
-
-        <!-- /#page-content-wrapper -->
+@yield('contenido')
 
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery Version 1.11.0 -->
-    <script src="../js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="../js/jquery-1.10.2.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    <!-- Page-Level Plugin Scripts - Blank -->
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="../js/sb-admin.js"></script>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
 
 </body>
 
