@@ -13,14 +13,31 @@
                     </div>
             </div>
                 <!-- /.panel-heading -->
-            <div class="panel-body">
+                    <div class="panel-body">
+                                {{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'put')) }}
+                            <div class="form-group">
+                                {{Form::input('text','username', $user->username ,array('class'=>'form-control'))}}
+                                {{$errors->first('username')}}
+                            </div>
 
-
-
-
-            </div>
+                                <div class="form-group">
+                                    {{Form::input('text','fullname', $user->fullname,array('class'=>'form-control'))}}
+                                    {{$errors->first('fullname')}}
+                                </div>
+                                <div class="form-group">
+                                    {{Form::input('text','email', $user->email,array('class'=>'form-control'))}}
+                                    {{$errors->first('email')}}
+                                </div>
+                                <div class="form-group">
+                                    {{Form::input('text','phone', $user->phone,array('class'=>'form-control'))}}
+                                    {{$errors->first('phone')}}
+                                </div>
+                                <div class="form-group">
+                                {{Form::submit('Grabar',array('class'=>'btn btn-lg btn-success btn-block'))}}
+                                </div>
+                                {{Form::close()}}
+                    </div>
                 <!-- /.panel-body -->
-        </div>
+          </div>
     </div>
-
 @stop

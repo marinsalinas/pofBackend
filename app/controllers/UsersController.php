@@ -27,7 +27,39 @@ class UsersController extends \BaseController
 
         $users = User::all();
 
-        return View::make('users.edicion', ['user' => $user],['users' => $users]);
+        return View::make('users.edicion', ['user' => $user], ['users' => $users]);
+    }
+
+    public function update($id)
+    {
+
+        $validacion = Validator::make(Input::all(), [
+
+            'username' => 'required',
+            'fullname' => 'required',
+            'email' => 'required',
+            'phone' => 'required'
+
+
+        ]);
+
+        if ($validacion->fails()) {
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
+
+        $user = User::find($id); /// HERE!
+        $user->username = Input::get('username');
+        $user->password = Hash::make(Input::get('password'));
+        $user->fullname = Input::get('fullname');
+        $user->email = Input::get('email');
+        $user->phone = Input::get('phone');
+        $user->save();
+
+        Session::flash('message', 'Successfully updated nerd!');
+
+        return Redirect::to('users');
+
     }
 
     public function create()
@@ -40,6 +72,7 @@ class UsersController extends \BaseController
 
     public function destroy($id)
     {
+
         $user = User::find($id);
 
         $user->delete();
@@ -55,7 +88,7 @@ class UsersController extends \BaseController
 
             'username' => 'required',
             'password' => 'required',
-            'fullname'=>'required',
+            'fullname' => 'required',
             'email' => 'required',
             'phone' => 'required'
 
