@@ -17,7 +17,6 @@
   @section('cuatro')
                   <div class="col-lg-4">
 
-      <h1 style="text-align: center">Restaurantes</h1>
         @foreach($restaurants as $restaurant)
           <div class="panel panel-default">
               <div class="panel-heading">
@@ -26,8 +25,10 @@
               <!-- /.panel-heading -->
               <div class="panel-body">
                   <ul>
-                      <li>{{$restaurant->name}}</li>
-                      <li>{{$restaurant->textaddress}}</li>
+                      <li>Nombre: {{$restaurant->name}}</li>
+                      <li>Direccion: {{$restaurant->textaddress}}</li>
+                      <li>Tipo de Restaurante: {{$restaurant->type}}</li>
+                      <li>Descripcion: {{$restaurant->description}}</li>
                   </ul>
               </div>
               <!-- /.panel-body -->

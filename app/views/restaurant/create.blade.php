@@ -20,7 +20,8 @@
                                     {{$errors->first('textaddress')}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::input('text','onlycash', null,array('class'=>'form-control','placeholder'=>'Solo Efectivo (1 o 0)'))}}
+                                    {{Form::label('onlycash','Solo acepta efectivo ? : ')}}
+                                    {{Form::select('onlycash', array('No','Si'));}}
                                     {{$errors->first('onlycash')}}
                                 </div>
                                 <div class="form-group">
@@ -31,6 +32,9 @@
                                     {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion'))}}
                                     {{$errors->first('type')}}
                                 </div>
+                                <div id="rest-lat"></div>
+                                <div id="rest-lng"></div>
+                                <div id="map-canvas"></div>
                                 <div class="form-group">
                                     {{Form::submit('Grabar',array('class'=>'btn btn-lg btn-success btn-block'))}}
                                 </div>

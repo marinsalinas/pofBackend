@@ -20,6 +20,10 @@
                                     {{$errors->first('password')}}
                                 </div>
                                 <div class="form-group">
+                                    {{Form::input('text','fullname', null,array('class'=>'form-control','placeholder'=>'Ingrese su Nombre completo'))}}
+                                    {{$errors->first('fullname')}}
+                                </div>
+                                <div class="form-group">
                                     {{Form::input('text','email', null,array('class'=>'form-control','placeholder'=>'Ingrese su correo'))}}
                                     {{$errors->first('email')}}
                                 </div>

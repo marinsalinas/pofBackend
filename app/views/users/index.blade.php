@@ -22,7 +22,7 @@
       @foreach($users as $user)
         <div class="panel panel-default">
             <div class="panel-heading">
-              <i class="fa fa-users"></i> {{$user->username}}
+              <i class="fa fa-users"></i> {{ link_to ("users/{$user->username}/edit", $user->username)}}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">

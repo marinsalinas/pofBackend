@@ -12,7 +12,6 @@ class UsersController extends \BaseController
 
     }
 
-
     public function  show($username)
     {
 
@@ -21,10 +20,32 @@ class UsersController extends \BaseController
         return View::make('users.detalle', ['user' => $user]);
     }
 
-    public function create()
+    public function  edit($username)
     {
 
-        return View::make('users.create');
+        $user = User::whereUsername($username)->first();
+
+        $users = User::all();
+
+        return View::make('users.edicion', ['user' => $user],['users' => $users]);
+    }
+
+    public function create()
+    {
+        $users = User::all();
+
+
+        return View::make('users/create', ['users' => $users]);
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        $user->delete();
+
+        return 'se ha borrado';
+
     }
 
 
@@ -34,6 +55,7 @@ class UsersController extends \BaseController
 
             'username' => 'required',
             'password' => 'required',
+            'fullname'=>'required',
             'email' => 'required',
             'phone' => 'required'
 
@@ -47,6 +69,7 @@ class UsersController extends \BaseController
         $user = new User;
         $user->username = Input::get('username');
         $user->password = Hash::make(Input::get('password'));
+        $user->fullname = Input::get('fullname');
         $user->email = Input::get('email');
         $user->phone = Input::get('phone');
         $user->save();

@@ -9,15 +9,15 @@
     <title>Administracion Demo</title>
 
     <!-- Core CSS - Include with every page -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Page-Level Plugin CSS - Dashboard -->
-    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
+    <link href="../../css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="../../css/plugins/timeline/timeline.css" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -34,13 +34,13 @@
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="users"><i class="fa fa-home"></i> Inicio</a>
+                            <a href="../../users"><i class="fa fa-home"></i> Inicio</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="users/create"> Alta de usuarios</a>
+                                    <a href="../../users/create"> Alta de usuarios</a>
                                 </li>
                                 <li>
                                     <a href="#">Edicion de Usuarios <span class="fa arrow"></span></a>
@@ -52,16 +52,18 @@
                                     </ul >
                                         <!-- /.nav-third-level -->
                                 </li>
+
                             </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="restaurant"><i class="fa fa-coffee"></i> Restaurantes<span class="fa arrow"></span></a>
+                            <a href="../../restaurant"><i class="fa fa-coffee"></i> Restaurantes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="restaurant">Ver restaurantes</a>
+                                    <a href="../../restaurant">Ver restaurantes</a>
                                 </li>
                                 <li>
-                                    <a href="restaurant/create"> Alta de Restaurante</a>
+                                    <a href="../../restaurant/create"> Alta de Restaurante</a>
                                 </li>
                             </ul>
                         </li>
@@ -69,7 +71,7 @@
                             <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
                         </li>
                         <li>
-                            <a href="logout"><i class="fa fa-cog"></i> Logout</a>
+                            <a href="../../logout"><i class="fa fa-cog"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->
@@ -102,19 +104,19 @@
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../../js/jquery-1.10.2.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- Page-Level Plugin Scripts - Dashboard -->
-    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="js/plugins/morris/morris.js"></script>
+    <script src="../../js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="../../js/plugins/morris/morris.js"></script>
 
     <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
+    <script src="../../js/sb-admin.js"></script>
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <script src="js/demo/dashboard-demo.js"></script>
+    <script src="../../js/demo/dashboard-demo.js"></script>
 
 </body>
 
