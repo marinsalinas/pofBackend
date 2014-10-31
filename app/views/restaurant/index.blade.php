@@ -30,9 +30,6 @@
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li>{{link_to ("restaurant/{$restaurant->name}/edit", 'Edicion')}}
                                         </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Eliminar</a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>

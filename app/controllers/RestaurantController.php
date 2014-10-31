@@ -21,6 +21,18 @@ class RestaurantController extends BaseController
 
     }
 
+    public function  show($name)
+    {
+        $restaurant = Restaurant::whereName($name)->first();
+
+        $users = User::all();
+
+
+        return View::make('restaurant.detalle', ['restaurant' => $restaurant],['users' => $users]);
+
+        //return $name;
+    }
+
     public function create()
     {
 
@@ -39,6 +51,37 @@ class RestaurantController extends BaseController
         $users = User::all();
 
         return View::make('restaurant.edicion', ['restaurant' => $restaurant], ['users' => $users]);
+    }
+
+    public function update($id)
+    {
+        $validacion = Validator::make(Input::all(), [
+
+            'name' => 'required',
+            'textaddress' => 'required',
+            'onlycash' => 'required',
+            'type' => 'required',
+            'description' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+
+
+        ]);
+
+        if ($validacion->fails()) {
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
+        $restaurant = Restaurant::find($id);
+        $restaurant->name = Input::get('name');
+        $restaurant->textaddress = Input::get('textaddress');
+        $restaurant->onlycash = Input::get('onlycash');
+        $restaurant->type=Input::get('type');
+        $restaurant->description= Input::get('description');
+        $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
+        $restaurant->save();
+
+        return Redirect::route('restaurant.index');
     }
 
     public function store()
@@ -73,16 +116,15 @@ class RestaurantController extends BaseController
 
     }
 
-    public function  show($name)
+    public function destroy($id)
     {
-        $restaurant = Restaurant::whereName($name)->first();
 
-        $users = User::all();
+        $restaurant = Restaurant::find($id);
 
+        $restaurant->delete();
 
-        return View::make('restaurant.detalle', ['restaurant' => $restaurant],['users' => $users]);
+        return 'se ha borrado';
 
-        //return $name;
     }
 
 }

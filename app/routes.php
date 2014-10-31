@@ -4,12 +4,15 @@ Route::get('/', function () {
     return View::make('hello');
 });
 
-/*Route::get('admin', function () {
 
-    return View::make('users.index');
-})->before('auth');*/
+Route::get('test', function () {
+
+    $restaurant = Restaurant::all();
+
+    return View::make('test',['restaurant' => $restaurant]);
 
 
+});
 
 //Sessions Controller
 Route::get('login', 'SessionsController@create');

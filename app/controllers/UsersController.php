@@ -48,7 +48,7 @@ class UsersController extends \BaseController
             return Redirect::back()->withInput()->withErrors($validacion);
         }
 
-        $user = User::find($id); /// HERE!
+        $user = User::find($id); // esta es la diferencia a almetodo store!
         $user->username = Input::get('username');
         $user->password = Hash::make(Input::get('password'));
         $user->fullname = Input::get('fullname');
@@ -68,17 +68,6 @@ class UsersController extends \BaseController
 
 
         return View::make('users/create', ['users' => $users]);
-    }
-
-    public function destroy($id)
-    {
-
-        $user = User::find($id);
-
-        $user->delete();
-
-        return 'se ha borrado';
-
     }
 
     public function store()
@@ -110,4 +99,14 @@ class UsersController extends \BaseController
 
     }
 
+    public function destroy($id)
+    {
+
+        $user = User::find($id);
+
+        $user->delete();
+
+        return 'se ha borrado';
+
+    }
 }

@@ -5,10 +5,15 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-user"></i> Edicion de restaurante : {{$restaurant->name}}
+                    <div class="pull-right">
+                    {{ Form::open(array('route' => array('restaurant.destroy', $restaurant->id), 'method' => 'delete')) }}
+                        <button type="submit" >Borrar Restaurante</button>
+                    {{ Form::close() }}
+                    </div>
             </div>
                 <!-- /.panel-heading -->
                         <div class="panel-body">
-                            {{Form::open(['route'=> 'restaurant.store'])}}
+                                {{ Form::open(array('route' => array('restaurant.update', $restaurant->id), 'method' => 'put')) }}
                                 <div class="form-group">
                                     {{Form::input('text','name', $restaurant->name ,array('class'=>'form-control'))}}
                                     {{$errors->first('name')}}
@@ -31,11 +36,11 @@
                                     {{$errors->first('description')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('hidden','latitude', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud'))}}
+                                {{Form::input('hidden','latitude', $restaurant->location->latitude,array('id'=>'rest-lat','class'=>'form-control'))}}
                                 {{$errors->first('latitude')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('hidden','longitude', null,array('id'=>'rest-lng','class'=>'form-control','placeholder'=>'Longitud'))}}
+                                {{Form::input('hidden','longitude', $restaurant->location->longitude,array('id'=>'rest-lng','class'=>'form-control'))}}
                                  {{$errors->first('longitude')}}
                                  </div>
                                  <div class="form-group">
