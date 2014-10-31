@@ -32,11 +32,11 @@
                                     {{$errors->first('type')}}
                                 </div>
                                 <div class="form-group">
-                               {{Form::input('text','latitude', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud', 'disabled'=>'true'))}}
-                               {{$errors->first('latitude')}}
+                                {{Form::input('hidden','latitude', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud'))}}
+                                {{$errors->first('latitude')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('text','longitude', null,array('id'=>'rest-lng','class'=>'form-control','placeholder'=>'Longitud', 'disabled'=>'true'))}}
+                                {{Form::input('hidden','longitude', null,array('id'=>'rest-lng','class'=>'form-control','placeholder'=>'Longitud'))}}
                                  {{$errors->first('longitude')}}
                                  </div>
                                  <div class="form-group">
