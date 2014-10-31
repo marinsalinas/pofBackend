@@ -32,9 +32,18 @@
                                     {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion'))}}
                                     {{$errors->first('type')}}
                                 </div>
-                                <div id="rest-lat"></div>
-                                <div id="rest-lng"></div>
-                                <div id="map-canvas"></div>
+                                <div class="form-group">
+                                {{Form::input('text','description', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud', 'disabled'=>'true'))}}
+                                                                    {{$errors->first('type')}}
+                                </div>
+                                <div class="form-group">
+                                {{Form::input('text','description', null,array('id'=>'rest-lng','class'=>'form-control','placeholder'=>'Longitud', 'disabled'=>'true'))}}
+                                                                    {{$errors->first('type')}}
+                                 </div>
+                                 <div class="form-group">
+                                     <div id="map-canvas" style="width: 100%; height: 250px; background: #000000"></div>
+                                 </div>
+
                                 <div class="form-group">
                                     {{Form::submit('Grabar',array('class'=>'btn btn-lg btn-success btn-block'))}}
                                 </div>
