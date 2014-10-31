@@ -81,7 +81,6 @@ class UsersController extends \BaseController
 
     }
 
-
     public function store()
     {
         $validacion = Validator::make(Input::all(), [

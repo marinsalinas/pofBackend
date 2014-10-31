@@ -19,6 +19,8 @@
     <!-- SB Admin CSS - Include with every page -->
     <link href="../../css/sb-admin.css" rel="stylesheet">
 
+    <!--Libreria de Mapas-->
+    <script type="application/javascript" src="../../js/map/map.js"></script>
 </head>
 
 <body>
@@ -80,6 +82,9 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+
+        @yield('libre')
+
 
         <div id="page-wrapper">
             <div class="row">

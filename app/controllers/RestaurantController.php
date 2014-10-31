@@ -31,6 +31,16 @@ class RestaurantController extends BaseController
 
     }
 
+    public function  edit($name)
+    {
+
+        $restaurant = Restaurant::whereName($name)->first();
+
+        $users = User::all();
+
+        return View::make('restaurant.edicion', ['restaurant' => $restaurant], ['users' => $users]);
+    }
+
     public function store()
     {
         $validacion = Validator::make(Input::all(), [
@@ -74,6 +84,7 @@ class RestaurantController extends BaseController
 
         //return $name;
     }
+
 }
 
 /**
