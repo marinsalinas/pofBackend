@@ -38,6 +38,16 @@ class UsersController extends \BaseController
         return View::make('users/create', ['users' => $users]);
     }
 
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        $user->delete();
+
+        return 'se ha borrado';
+
+    }
+
 
     public function store()
     {
@@ -45,6 +55,7 @@ class UsersController extends \BaseController
 
             'username' => 'required',
             'password' => 'required',
+            'fullname'=>'required',
             'email' => 'required',
             'phone' => 'required'
 
@@ -58,6 +69,7 @@ class UsersController extends \BaseController
         $user = new User;
         $user->username = Input::get('username');
         $user->password = Hash::make(Input::get('password'));
+        $user->fullname = Input::get('fullname');
         $user->email = Input::get('email');
         $user->phone = Input::get('phone');
         $user->save();

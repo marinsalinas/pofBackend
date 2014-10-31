@@ -1,8 +1,6 @@
 
 @extends('layouts.slash')
 
-
-
 @section('contenido')
 <div class="container">
     <div class="row">
@@ -20,6 +18,10 @@
                                 <div class="form-group">
                                     {{Form::input('password','password', null,array('class'=>'form-control','placeholder'=>'Ingrese el Password'))}}
                                     {{$errors->first('password')}}
+                                </div>
+                                <div class="form-group">
+                                    {{Form::input('text','fullname', null,array('class'=>'form-control','placeholder'=>'Ingrese su Nombre completo'))}}
+                                    {{$errors->first('fullname')}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::input('text','email', null,array('class'=>'form-control','placeholder'=>'Ingrese su correo'))}}
