@@ -18,8 +18,6 @@
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="../../css/sb-admin.css" rel="stylesheet">
-
-    <!--Libreria de Mapas-->
     <script type="application/javascript" src="../../js/map/map.js"></script>
 </head>
 
@@ -83,9 +81,6 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        @yield('libre')
-
-
         <div id="page-wrapper">
             <div class="row">
                @yield('doce')
@@ -94,20 +89,12 @@
             <!-- /.row -->
             <div class="row">
             @yield('ocho')
-                <!-- /.col-lg-8 -->
-                        @yield('cuatro')
-                            </div>
-                            </div>
-                            </div>
-                <!-- /.col-lg-4 -->
+            <!-- /.col-lg-8 -->
+            @yield('cuatro')
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-
+                <!-- /.col-lg-4 -->
     <!-- Core Scripts - Include with every page -->
     <script src="../../js/jquery-1.10.2.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
