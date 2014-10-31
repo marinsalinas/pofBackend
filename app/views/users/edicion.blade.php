@@ -33,7 +33,7 @@
                                     {{$errors->first('phone')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::submit('Grabar',array('class'=>'btn btn-lg btn-success btn-block'))}}
+                                {{Form::submit('Cambiar',array('class'=>'btn btn-lg btn-success btn-block'))}}
                                 </div>
                                 {{Form::close()}}
                     </div>
