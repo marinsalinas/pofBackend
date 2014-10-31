@@ -40,6 +40,17 @@
                                 <li>
                                     <a href="../users/create"> Alta de usuarios</a>
                                 </li>
+                                <li>
+                                    <a href="#">Edicion de Usuarios <span class="fa arrow"></span></a>
+                                           <!-- /.nav-second-level -->
+                                           <ul class="nav nav-third-level">
+                                           @foreach($users as $user)
+                                           <li> {{ link_to ("users/{$user->username}/edit", $user->username)}}</li>
+                                           @endforeach
+                                           </ul >
+                                           <!-- /.nav-third-level -->
+                                </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -55,7 +66,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
+                            <a href="#"><i class="fa fa-map-marker"></i> Pedido</a>
                         </li>
                         <li>
                             <a href="../logout"><i class="fa fa-cog"></i> Logout</a>

@@ -1,6 +1,8 @@
 
 @extends('layouts.slash')
 
+
+
 @section('contenido')
 <div class="container">
     <div class="row">

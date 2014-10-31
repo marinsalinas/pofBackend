@@ -12,7 +12,6 @@ class UsersController extends \BaseController
 
     }
 
-
     public function  show($username)
     {
 
@@ -21,10 +20,22 @@ class UsersController extends \BaseController
         return View::make('users.detalle', ['user' => $user]);
     }
 
-    public function create()
+    public function  edit($username)
     {
 
-        return View::make('users.create');
+        $user = User::whereUsername($username)->first();
+
+        $users = User::all();
+
+        return View::make('users.edicion', ['user' => $user],['users' => $users]);
+    }
+
+    public function create()
+    {
+        $users = User::all();
+
+
+        return View::make('users/create', ['users' => $users]);
     }
 
 

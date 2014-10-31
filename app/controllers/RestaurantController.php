@@ -14,15 +14,20 @@ class RestaurantController extends BaseController
         $restaurant->save();*/
 
         $restaurants = Restaurant::all();
+        $users = User::all();
 
-        return View::make('restaurant/index', ['restaurants' => $restaurants]);
+
+        return View::make('restaurant/index', ['restaurants' => $restaurants],['users' => $users]);
 
     }
 
     public function create()
     {
 
-        return View::make('restaurant.create');
+        $users = User::all();
+
+
+        return View::make('restaurant.create',['users' => $users]);
 
     }
 
@@ -59,7 +64,10 @@ class RestaurantController extends BaseController
     {
         $restaurant = Restaurant::whereName($name)->first();
 
-        return View::make('restaurant.detalle', ['restaurant' => $restaurant]);
+        $users = User::all();
+
+
+        return View::make('restaurant.detalle', ['restaurant' => $restaurant],['users' => $users]);
 
         //return $name;
     }
