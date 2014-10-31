@@ -39,7 +39,9 @@ class RestaurantController extends BaseController
             'textaddress' => 'required',
             'onlycash' => 'required',
             'type' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
 
 
         ]);
@@ -54,6 +56,7 @@ class RestaurantController extends BaseController
         $restaurant->onlycash = Input::get('onlycash');
         $restaurant->type=Input::get('type');
         $restaurant->description= Input::get('description');
+        $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
         $restaurant->save();
 
         return Redirect::route('restaurant.index');

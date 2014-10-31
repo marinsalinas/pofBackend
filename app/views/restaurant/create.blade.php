@@ -30,15 +30,15 @@
                                 </div>
                                 <div class="form-group">
                                     {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion'))}}
-                                    {{$errors->first('type')}}
+                                    {{$errors->first('description')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('text','description', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud', 'disabled'=>'true'))}}
-                                                                    {{$errors->first('type')}}
+                                {{Form::input('hidden','latitude', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud'))}}
+                                                                    {{$errors->first('latitude')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('text','description', null,array('id'=>'rest-lng','class'=>'form-control','placeholder'=>'Longitud', 'disabled'=>'true'))}}
-                                                                    {{$errors->first('type')}}
+                                {{Form::input('hidden','longitude', null,array('id'=>'rest-lng','class'=>'form-control','placeholder'=>'Longitud'))}}
+                                                                    {{$errors->first('longitude')}}
                                  </div>
                                  <div class="form-group">
                                      <div id="map-canvas" style="width: 100%; height: 250px; background: #000000"></div>
