@@ -106,7 +106,7 @@ class UsersController extends \BaseController
 
         $user->delete();
 
-        return 'se ha borrado';
+        return Redirect::route('users.index');
 
     }
 }
