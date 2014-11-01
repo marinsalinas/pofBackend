@@ -123,7 +123,7 @@ class RestaurantController extends BaseController
 
         $restaurant->delete();
 
-        return 'se ha borrado';
+        return Redirect::route('restaurant.index');
 
     }
 
