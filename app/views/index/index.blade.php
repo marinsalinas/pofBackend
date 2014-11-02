@@ -71,7 +71,7 @@
 			    	<div class="hsContainer">
 			    		<div class="hsContent">
 				    		<h2 data-center="opacity: 1" data--200-bottom="opacity: 0" data-206-top="opacity: 1" data-106-top="opacity: 0" data-anchor-target="#slide-2 h2">Pide tu comida fácil y rápido</h2>
-				    		<p data-center="opacity: 1" data--200-bottom="opacity: 0" data-206-top="opacity: 1" data-106-top="opacity: 0" data-anchor-target="#slide-2 h2">Con nuestro método de orden en 4 pasos, ahorraás muhco tiempo, claro sabemos que tienes hambre, nostros te ayudamos</p>
+				    		<p data-center="opacity: 1" data--200-bottom="opacity: 0" data-206-top="opacity: 1" data-106-top="opacity: 0" data-anchor-target="#slide-2 h2">Con nuestro método de orden en 4 pasos, ahorrás mucho tiempo, claro sabemos que tienes hambre, nostros te ayudamos</p>
 			    		</div>
 		        	</div>
 		    	</div>
@@ -111,7 +111,7 @@
 		    	<div class="bcg bcg2" data-bottom-top="opacity: 0;" data--33p-top="opacity: 0;" data--66p-top="opacity: 1;" data-anchor-target="#slide-5">
 			    	<div class="hsContainer">
 				    	<div class="hsContent" data-bottom-top="opacity: 0;" data-center="opacity: 1" data-anchor-target="#slide-5">
-				    		<h2>Localiza tu perido, no te frustres!</h2>
+				    		<h2>Localiza tu pedido, no te frustres!</h2>
 				    		<p>Con nuestro sistema de pedido tu podrás saber en cualquier momento su estatus y admeas reastraer en mapa tu localización.</p>
 			    		</div>
 			    	</div>
