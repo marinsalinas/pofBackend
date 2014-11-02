@@ -54,7 +54,20 @@ return array(
 
 
 
-    'custom' => array(),
+    'custom' => array(
+        'email'     => array(
+            'required' => 'Necesitamos conocer tu correo electronico',
+            'unique'   => 'El correo electronico ya existe'
+        ),
+        'username'  => array(
+            'required' => 'Necesitamos conocer tu nombre de usuario',
+            'unique'   => 'El nombre de usuario ya existe'
+        ),
+        'phone'     => array(
+            'required' => 'Necesitamos conocer tu telefono',
+            'unique'   => 'El telefono proporcionado ya existe'
+        ),
+    ),
 
 
 

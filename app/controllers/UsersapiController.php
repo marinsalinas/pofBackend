@@ -16,16 +16,16 @@ class UsersapiController extends \BaseController{
     public function store(){
         $validacion = Validator::make(Input::all(), [
 
-            'username' => 'required',
+            'username' => 'required|unique:users,username',
             'password' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required|unique:users,phone',
             'fullname' => 'required',
         ]);
 
         if ($validacion->fails()) {
 
-            return Response::json(array('error'=>true, 'message' => 'Campos Requeridos'), 400);
+            return Response::json(array('error'=>true, 'messages' => $validacion->messages()), 400);
         }
         $user = new User;
         $user->username = Input::get('username');
@@ -39,34 +39,22 @@ class UsersapiController extends \BaseController{
     }
 
     public function update($id){
-        $validador = Validator::make(Input::all(),[
-            'username' => 'required',
-            'password' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'fullname' => 'required',
-        ]);
-
-        if($validador->fails()){
-            return Response::json(array('error'=>true, 'message'=> 'Campos Requeridos'), 400);
-        }
-
         $user = Auth::user();
 
         if($user->id != $id){
             return Response::json(array('error'=>true, 'message'=> 'Operacion No permitida'), 400);
         }
 
-        $userTemp = User::where('username', '=', Input::get('username'))->first();
+        $validador = Validator::make(Input::all(),[
+            'username' => 'required|unique:users,username,'.$id,
+            'password' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'phone' => 'required|unique:users,phone,'.$id,
+            'fullname' => 'required',
+        ]);
 
-        if($userTemp != null &&($user->id != $userTemp->id)){
-            return Response::json(array('error'=>true, 'message'=> 'El nombre de usuario ya existe'), 400);
-        }
-
-        $userTemp = User::where('email', '=', Input::get('email'))->first();
-
-        if($userTemp != null &&($user->id != $userTemp->id)){
-            return Response::json(array('error'=>true, 'message'=> 'El correo electronico ya existe'), 400);
+        if($validador->fails()) {
+            return Response::json(array('error' => true, 'messages' => $validador->messages()), 400);
         }
 
         $user->username = Input::get('username');
