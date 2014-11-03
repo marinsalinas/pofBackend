@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="index/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="index/img/favicon.ico" type="image/x-icon">
     <title>Path Of The Food</title>
 
 
