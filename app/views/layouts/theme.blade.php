@@ -19,6 +19,9 @@
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/sb-admin.css" rel="stylesheet">
 
+        <script type="application/javascript" src="js/map/map.js"></script>
+
+
 </head>
 
 <body>
