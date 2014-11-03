@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('font/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('font/Roboto-Bold.ttf');
+}
+
+* {
+		padding:0;
+		margin:0;
+	}
+
+	html, body {
+		height:100%;background: #000;
+	}
+
+	.skrollr-desktop body {
+		height:100% !important;
+	}
+
+	body {
+		font-family:Roboto-Bold !important;
+	}
+
+	p {
+		margin:1em 0;
+        font-family: Roboto-Light !important;
+	}
+
+	.parallax-image-wrapper {
+		position:fixed;
+		left:0;
+		width:100%;
+		overflow:hidden;
+	}
+
+	.parallax-image-wrapper-50 {
+		height:50%;
+		top:-50%;
+	}
+
+	.parallax-image-wrapper-100 {
+		height:100%;
+		top:-100%;
+	}
+
+	.parallax-image {
+		display:none;
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:cover;
+	}
+
+	.parallax-image-50 {
+		height:200%;
+		top:-50%;
+	}
+
+	.parallax-image-100 {
+		height:100%;
+		top:0;
+	}
+
+	.parallax-image.skrollable-between {
+		display:block;
+	}
+
+	.no-skrollr .parallax-image-wrapper {
+		display:none !important;
+	}
+
+	#skrollr-body {
+		height:100%;
+		overflow:visible;
+		position:relative;
+	}
+
+	.gap {
+		background:transparent center no-repeat;
+		background-size:cover;
+		position: relative;
+	}
+
+	.skrollr .gap {
+		background:transparent !important;
+	}
+
+	.gap-50 {
+		height:50%;
+	}
+
+	.gap-100 {
+		height:100%;
+	}
+	
+	.content-end{background: #e65100;padding:20px 30px;}
+
+	 .content {
+		background:#e65100;
+		padding:1em;
+
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+
+	.content-full {
+		height:100%;
+        height: 500px;
+	} /* this  change the height of the box to 100% but broken animation */
+
+		
+	header {
+    background-color: #e65100;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    font-size: 18px;
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.header{position: fixed; top:0;}
+    	
+		
+		#nav {display:block;padding:0;margin:0;width:100%;}
+		
+		#nav > li {
+		display:inline-block;
+		padding:1em;
+		margin:0;
+		}
+		
+		#nav li a{text-transform: uppercase; text-decoration: none; color:#fff3e0}
+		
+		.container{width:100%; position: relative; border: 1px solid red;}
+		
+		
+		/* Button Responsive Menu*/
+		.btn-responsive-menu{display:none;float: right;padding:5px;cursor:pointer;margin:  10px 10px 10px 0;color: #e65100;z-index:100}
+		.icon-bar 			{display: block;width: 18px;height: 2px;margin:5px;background-color: #FFFFFF;-webkit-border-radius: 1px;-moz-border-radius: 1px;border-radius: 1px;}
+	
+		/* animate text box*/
+		.box{  width:50%;position:absolute;}
+		.box-home{width:50%;margin-left: 25%;margin-top:20%;position:absolute;}
+
+		.box h2,
+		.box-home h2{font-size: 50px; color: #ffffff; font-weight:300;text-align: center}
+		.box p,
+        .box-home p{font-size: 20px; color: #c0c0c0; font-weight:300;text-align: center; margin: 0;}
+		.end h2{color:#fff}
+
+		.localiza h2{font-size: 50px; color: #ffa726; font-weight:300;text-align: center}
+        .localiza p{color: #ff9800; font-family: Roboto-Bold}
+					
+@media(max-width:767px) {
+	
+	
+	
+		/* Menu */
+		#nav 		{display:none;margin: 0px 0 0px 0px;padding:0;float:left;width:100%; list-style: none;background: #e65100!important; }
+		#nav > li 	{float: left;margin: 0 0px 0 0;padding:0;position: relative;display: block;width:100%;}
+		#nav a 		{color: #000; display: block;font: 14px;padding: 14px 20px;}
+		#nav a:hover {background:#ef6c00;}
+		
+		.btn-responsive-menu{display:block}
+		
+		.box h2,
+		.box-home h2{font-size: 25px; color: #ffffff; font-weight:300;text-align: center}
+
+        .box p,
+        .box-home p{font-size: 15px; color: #c0c0c0; font-weight:300;text-align: center; margin: 0;}
+
+        .localiza h2{font-size: 25px; color: #ffa726; font-weight:300;text-align: center}
+        .localiza p{color: #ff9800; font-family: Roboto-Bold}
+
+		.end h2{color:#fff}
+		
+		.box{ width:50%;margin-left: 25%;margin-top:27%;position:absolute;}
+		.box-home{width:50%;margin-left: 25%;margin-top:27%;position:absolute;}
+
+			
+		}  
