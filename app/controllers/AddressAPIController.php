@@ -135,7 +135,17 @@ class AddressAPIController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $user = Auth::user();
+        $address = $user->address()->where('id', '=' ,$id)->first();
+
+        if($address == null){
+            return Response::json(array('error'=>true, 'message'=>'No se encontro dirección en la libreta de direcciones'), 400);
+        }
+
+        $address->delete();
+
+        return Response::json(array('error'=>false, 'message'=>'Se ha borrado satisfactioriamente'), 200);
+
 	}
 
 
