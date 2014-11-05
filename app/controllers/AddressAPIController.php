@@ -39,7 +39,29 @@ class AddressAPIController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $validacion = Validator::make(Input::all(), [
+            'label' => 'required',
+            'description' => 'required',
+            'textaddress' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+        ]);
+
+        if ($validacion->fails()) {
+            return Response::json(array('error' => true, 'message' => 'Todos los campos son obligatorios'), 400);
+        }
+
+        $user = Auth::user();
+        $address = new Address;
+        $address->label = Input::get('label');
+        $address->description = Input::get('description');
+        $address->textaddress = Input::get('textaddress');
+        $address->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
+        //Asi grabas con relaciones :) es hermosamente hermoso.
+        $user->address()->save($address);
+
+        return Response::json(array("error"=>false, "address"=>$address), 200);
+
 	}
 
 
