@@ -40,7 +40,7 @@ class AddressAPIController extends \BaseController {
 	public function store()
 	{
         $validacion = Validator::make(Input::all(), [
-            'label' => 'required',
+            'label' => 'required|unique:address,label,NULL,id,user_id,'.Auth::user()->id,
             'description' => 'required',
             'textaddress' => 'required',
             'latitude' => 'required',
@@ -48,7 +48,7 @@ class AddressAPIController extends \BaseController {
         ]);
 
         if ($validacion->fails()) {
-            return Response::json(array('error' => true, 'message' => 'Todos los campos son obligatorios'), 400);
+            return Response::json(array('error' => true, 'messages' => $validacion->messages()), 400);
         }
 
         $user = Auth::user();
@@ -97,7 +97,33 @@ class AddressAPIController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = Auth::user();
+        $address = $user->address()->where('id', '=' ,$id)->first();
+
+        if($address == null){
+            return Response::json(array('error'=>true, 'message'=>'No se encontro dirección en la libreta de direcciones'), 400);
+        }
+
+        $validacion = Validator::make(Input::all(), [
+            'label' => 'required|unique:address,label,'.$id.',id,user_id,'.Auth::user()->id,
+            'description' => 'required',
+            'textaddress' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+        ]);
+
+        if ($validacion->fails()) {
+            return Response::json(array('error' => true, 'messages' => $validacion->messages()), 400);
+        }
+
+        $address->label = Input::get('label');
+        $address->description = Input::get('description');
+        $address->textaddress = Input::get('textaddress');
+        $address->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
+        //Asi grabas con relaciones :) es hermosamente hermoso.
+        $user->address()->save($address);
+
+        return Response::json(array("error"=>false, "address"=>$address), 200);
 	}
 
 
