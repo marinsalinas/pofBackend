@@ -47,7 +47,6 @@ class UsersapiController extends \BaseController{
 
         $validador = Validator::make(Input::all(),[
             'username' => 'required|unique:users,username,'.$id,
-            'password' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'phone' => 'required|unique:users,phone,'.$id,
             'fullname' => 'required',
@@ -58,7 +57,6 @@ class UsersapiController extends \BaseController{
         }
 
         $user->username = Input::get('username');
-        $user->password = Hash::make(Input::get('password'));
         $user->email = Input::get('email');
         $user->fullname = Input::get('fullname');
         $user->phone = Input::get('phone');
@@ -69,6 +67,28 @@ class UsersapiController extends \BaseController{
 
     public function destroy(){
         return Response::json(array('error'=>true, 'message'=>'Operacion No Permitida'), 400);
+    }
+
+    public function password($id){
+        $user = Auth::user();
+
+        if($user->id != $id){
+            return Response::json(array('error'=>true, 'message'=> 'Operacion No permitida'), 400);
+        }
+
+
+        $validador = Validator::make(Input::all(),[
+            'password' => 'required'
+        ]);
+
+        if($validador->fails()) {
+            return Response::json(array('error' => true, 'message'=>'No puede ir el campo vacío'), 400);
+        }
+
+        $user->password = Hash::make(Input::get('password'));
+        $user->push();
+
+        return Response::json(array("error"=>false, "message"=>"Contraseña Actualizada para: ".$user->username), 200);
     }
 
 
