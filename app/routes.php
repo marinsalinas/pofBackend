@@ -7,9 +7,13 @@ Route::get('/', function () {
 
 Route::get('test', function () {
 
-    $restaurant = Restaurant::all();
+    //$restaurant = Restaurant::all();
 
-    return View::make('test',['restaurant' => $restaurant]);
+    //return View::make('test',['restaurant' => $restaurant]);
+
+    $encrypted = Crypt::encrypt('secret');
+    $decrypted = Crypt::decrypt($encrypted);
+     return $decrypted;
 
 
 });

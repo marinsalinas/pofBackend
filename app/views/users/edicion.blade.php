@@ -16,11 +16,12 @@
                     <div class="panel-body">
                                 {{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'put')) }}
                             <div class="form-group">
+                                {{Form::label('username','User: ')}}
                                 {{Form::input('text','username', $user->username ,array('class'=>'form-control'))}}
                                 {{$errors->first('username')}}
                             </div>
-
                                 <div class="form-group">
+                                    {{Form::label('fullname','Nombre Completo: ')}}
                                     {{Form::input('text','fullname', $user->fullname,array('class'=>'form-control'))}}
                                     {{$errors->first('fullname')}}
                                 </div>
@@ -29,6 +30,7 @@
                                     {{$errors->first('email')}}
                                 </div>
                                 <div class="form-group">
+                                    {{Form::label('phone','Telefono: ')}}
                                     {{Form::input('text','phone', $user->phone,array('class'=>'form-control'))}}
                                     {{$errors->first('phone')}}
                                 </div>
