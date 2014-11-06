@@ -7,4 +7,8 @@ class Menu extends Eloquent {
     protected $fillable = array('product','price','description','restaurant_id');
 
 
+    public function restaurant(){
+        return $this->belongsTo('Restaurant', 'restaurant_id');
+    }
+
 }

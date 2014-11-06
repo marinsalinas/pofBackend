@@ -11,4 +11,4 @@ Aun no contamos con documentación oficial
 
 ### Pagina Oficial
 
-http://pof.marinsalinas.com
+http://pathofthefood.me

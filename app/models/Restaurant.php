@@ -12,9 +12,13 @@ class Restaurant extends Eloquent
     protected $guarded = array('id');
 
     public function opendays(){
-        $this->hasMany('OpenDays', 'restaurant_id');
+        return $this->hasMany('OpenDays', 'restaurant_id');
     }
 
+
+    public function menu(){
+        return $this->hasMany('Menu', 'restaurant_id');
+    }
 
     public function getLocationAttribute(){
         $id = $this->attributes['id'];

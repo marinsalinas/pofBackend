@@ -28,8 +28,28 @@ gmap.init = function(){
         var restLat = document.getElementById('rest-lat');
         var restLng = document.getElementById('rest-lng');
 
-        restLat.value = gmap.map.getCenter().lat();
-        restLng.value = gmap.map.getCenter().lng();
+        if(restLat.value == "" || restLng.value == ""){
+            restLat.value = gmap.map.getCenter().lat();
+            restLng.value = gmap.map.getCenter().lng();
+        }else{
+            var postition =  new google.maps.LatLng(restLat.value,restLng.value);
+            var infowindow = new google.maps.InfoWindow({
+                content: "<b>"+document.getElementById('restName').value+'</b>'
+            });
+
+            marker.setPosition(postition);
+            marker.setTitle("Restaurante");
+            infowindow.open(gmap.map, marker);
+            gmap.map.panTo(postition);
+            gmap.map.setZoom(15);
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+            });
+
+        }
+
+
 
         google.maps.event.addListener(marker, 'dragend', function(event){
             var restLat = document.getElementById('rest-lat');

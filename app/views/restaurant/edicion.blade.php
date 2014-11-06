@@ -15,7 +15,7 @@
                         <div class="panel-body">
                                 {{ Form::open(array('route' => array('restaurant.update', $restaurant->id), 'method' => 'put')) }}
                                 <div class="form-group">
-                                    {{Form::input('text','name', $restaurant->name ,array('class'=>'form-control'))}}
+                                    {{Form::input('text','name', $restaurant->name ,array('id'=>'restName','class'=>'form-control'))}}
                                     {{$errors->first('name')}}
                                 </div>
                                 <div class="form-group">
@@ -44,7 +44,7 @@
                                  {{$errors->first('longitude')}}
                                  </div>
                                  <div class="form-group">
-                                     <div id="map-canvas" style="width: 100%; height: 250px; background: #000000"></div>
+                                     <div id="map-canvas" style="width: 100%; height: 250px;"></div>
                                  </div>
 
                                 <div class="form-group">
