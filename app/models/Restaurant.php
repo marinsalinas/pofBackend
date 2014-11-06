@@ -29,7 +29,6 @@ class Restaurant extends Eloquent
 
 }
 
-
 /**
  * Created by PhpStorm.
  * User: OscarGarciaRuiz //Modified : Marin Salinas
