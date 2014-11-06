@@ -26,6 +26,7 @@
                                     {{$errors->first('fullname')}}
                                 </div>
                                 <div class="form-group">
+                                    {{Form::label('email','Email: ')}}
                                     {{Form::input('text','email', $user->email,array('class'=>'form-control'))}}
                                     {{$errors->first('email')}}
                                 </div>
