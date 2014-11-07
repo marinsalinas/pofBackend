@@ -26,17 +26,6 @@ class RestaurantController extends BaseController
 
     }
 
-    public function  show($name)
-    {
-        $restaurant = Restaurant::whereName($name)->first();
-
-        $users = User::all();
-
-
-        return View::make('restaurant.detalle', ['restaurant' => $restaurant],['users' => $users]);
-
-        //return $name;
-    }
 
     public function create()
     {

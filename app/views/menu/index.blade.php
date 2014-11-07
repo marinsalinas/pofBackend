@@ -17,19 +17,20 @@
 
 @section('cuatro')
                 <div class="col-lg-4">
-
     <h1 style="text-align: center">Menus</h1>
       @foreach($menus as $menu)
         <div class="panel panel-default">
+                            <li hidden><{{$restaurant = Restaurant::whereId($menu->restaurant_id)->first()}}</li>
             <div class="panel-heading">
               <i class="fa fa-users"></i> {{ link_to ("menu/{$menu->product}/edit", $menu->product)}}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <ul>
-                    <li>{{$menu->product}}</li>
-                    <li>{{$menu->price}}</li>
-                    <li>{{$menu->description}}</li>
+                    <li>Restaurante: {{$restaurant->name}}</li>
+                    <li>Comida: {{$menu->product}}</li>
+                    <li>Precio: {{$menu->price}}</li>
+                    <li>Descripcion: {{$menu->description}}</li>
                 </ul>
             </div>
             <!-- /.panel-body -->

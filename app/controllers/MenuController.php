@@ -25,19 +25,20 @@ class MenuController extends BaseController
 
         $users = User::all();
 
+        $restaurants = Restaurant::all();
 
-        return View::make('restaurant.create',['users' => $users]);
+        return View::make('menu.create',['users' => $users],['restaurants' => $restaurants]);
 
     }
 
-    public function  edit($comida)
+    public function edit($comida)
     {
-
-        $product = Menu::whereProduct($comida)->first();
 
         $users = User::all();
 
-        return View::make('menu.edicion', ['product' => $product],['users' => $users]);
+        $product = Menu::whereProduct($comida)->first();
+
+        return View::make('menu.edicion',['product' => $product],['users' => $users]);
 
     }
 
@@ -45,14 +46,10 @@ class MenuController extends BaseController
     {
         $validacion = Validator::make(Input::all(), [
 
-            'name' => 'required',
-            'textaddress' => 'required',
-            'onlycash' => 'required',
-            'type' => 'required',
-            'description' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required'
-
+            'restaurant_id' => 'required',
+            'product' => 'required',
+            'price' => 'required',
+            'description' => 'required'
 
         ]);
 
@@ -60,30 +57,25 @@ class MenuController extends BaseController
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-        $restaurant = Restaurant::find($id);
-        $restaurant->name = Input::get('name');
-        $restaurant->textaddress = Input::get('textaddress');
-        $restaurant->onlycash = Input::get('onlycash');
-        $restaurant->type=Input::get('type');
-        $restaurant->description= Input::get('description');
-        $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
-        $restaurant->save();
 
-        return Redirect::route('restaurant.index');
+        $menu = Menu::find($id);
+        $menu->restaurant_id=Input::get('restaurant_id');
+        $menu->product=Input::get('product');
+        $menu->price=Input::get('price');
+        $menu->description=Input::get('description');
+        $menu->save();
+
+        return Redirect::route('menu.index');
     }
 
     public function store()
     {
         $validacion = Validator::make(Input::all(), [
 
-            'name' => 'required',
-            'textaddress' => 'required',
-            'onlycash' => 'required',
-            'type' => 'required',
-            'description' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required'
-
+            'restaurant_id' => 'required',
+            'product' => 'required',
+            'price' => 'required',
+            'description' => 'required'
 
         ]);
 
@@ -91,27 +83,26 @@ class MenuController extends BaseController
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-        $restaurant = new Restaurant;
-        $restaurant->name = Input::get('name');
-        $restaurant->textaddress = Input::get('textaddress');
-        $restaurant->onlycash = Input::get('onlycash');
-        $restaurant->type=Input::get('type');
-        $restaurant->description= Input::get('description');
-        $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
-        $restaurant->save();
 
-        return Redirect::route('restaurant.index');
+        $menu = new Menu;
+        $menu->restaurant_id=Input::get('restaurant_id');
+        $menu->product=Input::get('product');
+        $menu->price=Input::get('price');
+        $menu->description=Input::get('description');
+        $menu->save();
+
+        return Redirect::route('menu.index');
 
     }
 
     public function destroy($id)
     {
 
-        $restaurant = Restaurant::find($id);
+        $menu = Menu::find($id);
 
-        $restaurant->delete();
+        $menu->delete();
 
-        return Redirect::route('restaurant.index');
+        return Redirect::route('menu.index');
 
     }
 
