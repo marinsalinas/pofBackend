@@ -65,13 +65,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cog"></i> Menus</a>
+                            <a href="menu"><i class="fa fa-cutlery"></i> Menus</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cog"></i> Pedidos</a>
+                            <a href="#"><i class="fa fa-cog"></i> Dispositivos</a>
                         </li>
                         <li>
                             <a href="logout"><i class="fa fa-cog"></i> Logout</a>
