@@ -65,8 +65,11 @@ class UsersapiController extends \BaseController{
         return Response::json(array('error'=>false, 'user'=>$user), 200);
     }
 
-    public function destroy(){
-        return Response::json(array('error'=>true, 'message'=>'Operacion No Permitida'), 400);
+    public function destroy($id){
+        $user = User::find($id);
+
+        $user->delete();
+        return Response::json(array('error'=>true, 'message'=>'Usuario borrado'), 200);
     }
 
     public function password($id){
