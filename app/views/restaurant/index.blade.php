@@ -15,7 +15,7 @@
               </div>
               <!-- /.panel-heading -->
               <div class="panel-body">
-                <div id="map-canvas" style="width: 100%; height: 250px; background: #000000"></div>
+                <div id="map-canvas" style="width: 100%; height: 500px;"></div>
               </div>
               <!-- /.panel-body -->
           </div>
