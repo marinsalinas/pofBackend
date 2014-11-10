@@ -30,7 +30,7 @@
         @foreach($restaurants as $restaurant)
           <div class="panel panel-default">
               <div class="panel-heading">
-                <i class="fa fa-users"></i> {{$restaurant->name}}
+                <i class="fa fa-users"></i> {{link_to ("restaurant/{$restaurant->name}",$restaurant->name)}}
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">

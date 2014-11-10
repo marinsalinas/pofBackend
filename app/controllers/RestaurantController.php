@@ -6,7 +6,6 @@ class RestaurantController extends BaseController
     public function index()
     {
 
-
         /*$restaurant = new Restaurant;
         $restaurant->name='Mudos';
         $restaurant->textaddress='San Pedro';
@@ -16,16 +15,25 @@ class RestaurantController extends BaseController
         $restaurant->save();*/
 
         $restaurants = Restaurant::all();
+
         $users = User::all();
 
-        if(Request::ajax()){
-            return Response::json(array('error'=>false, 'restaurants'=>$restaurants), 200);
-       }
+       // if(Request::ajax()){
+         //   return Response::json(array('error'=>false, 'restaurants'=>$restaurants), 200);
+       //}
 
         return View::make('restaurant/index', ['restaurants' => $restaurants],['users' => $users, 'view'=>'restaurant']);
 
     }
 
+    public function show($name){
+
+        $restaurant = Restaurant::whereName($name)->first();
+
+        $users = User::all();
+
+        return View::make('restaurant.detalle', ['restaurant' => $restaurant], ['users' => $users]);
+    }
 
     public function create()
     {
