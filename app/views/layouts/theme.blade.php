@@ -65,7 +65,15 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="menu"><i class="fa fa-cutlery"></i> Menus</a>
+                            <a href="menu"><i class="fa fa-cutlery"></i> Comidas<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                            <li>
+                                <a href="menu">Ver Comidas</a>
+                            </li>
+                            <li>
+                                <a href="menu/create"> Alta de Comidas</a>
+                            </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
