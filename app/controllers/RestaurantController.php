@@ -18,10 +18,14 @@ class RestaurantController extends BaseController
         $users = User::all();
 
         if(Request::ajax()){
-            return Response::json(array('error'=>false, 'restaurants'=>$restaurants), 200);
+            $response =  Response::json(array('error'=>false, 'restaurants'=>$restaurants), 200);
+            $response->header('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');
+            return $response;
        }
 
-        return View::make('restaurant/index', ['restaurants' => $restaurants],['users' => $users, 'view'=>'restaurant']);
+        $response = Response::make(View::make('restaurant/index', ['restaurants' => $restaurants],['users' => $users, 'view'=>'restaurant']));
+        $response->header('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');
+        return $response;
 
     }
 
