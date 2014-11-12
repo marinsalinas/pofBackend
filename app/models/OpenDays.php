@@ -5,7 +5,7 @@
  * Date: 30/10/2014
  * Time: 10:00 PM
  */
-class Restaurant extends Eloquent
+class OpenDays extends Eloquent
 {
     protected $table = 'opendays';
 

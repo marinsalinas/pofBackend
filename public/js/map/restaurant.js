@@ -30,7 +30,7 @@ gmap.init = function() {
                     });
 
                     var marker = new google.maps.Marker({
-
+                        icon: "mapicons/"+data.restaurants[i].icon_type+".png",
                         position: postition,
                         map: gmap.map,
                         title: data.restaurants[i].name
