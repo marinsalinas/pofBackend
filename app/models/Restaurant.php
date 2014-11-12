@@ -11,6 +11,19 @@ class Restaurant extends Eloquent
 
     protected $guarded = array('id');
 
+    public static function getPossibleIcon()
+    {
+        $type = DB::select( DB::raw("SHOW COLUMNS FROM restaurants WHERE Field = 'icon_type'") )[0]->Type;
+        preg_match('/^enum\((.*)\)$/', $type, $matches);
+        $enum = array();
+        foreach( explode(',', $matches[1]) as $value )
+        {
+            $v = trim( $value, "'" );
+            $enum = array_add($enum, $v, $v);
+        }
+        return $enum;
+    }
+
     public function opendays(){
         return $this->hasMany('OpenDays', 'restaurant_id');
     }

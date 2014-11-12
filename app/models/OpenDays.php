@@ -9,7 +9,10 @@ class OpenDays extends Eloquent
 {
     protected $table = 'opendays';
 
-
     protected $guarded = array('id');
+
+    public function restaurant(){
+        return $this->belongsTo('Restaurant', 'restaurant_id');
+    }
 
 }

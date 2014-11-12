@@ -17,7 +17,7 @@ class RestaurantAPIController extends \BaseController {
 	 */
 	public function index()
 	{
-        return Response::json(Restaurant::all(),200);
+        return Response::json(array('error'=>false,'restaurants'=>Restaurant::all()),200);
 	}
 
 
@@ -51,7 +51,15 @@ class RestaurantAPIController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        $restaurant = Restaurant::find($id)->first();
+
+        if($restaurant == null){
+            return Response::json(array('error'=>true, 'message'=>'No se encontro restaurante'), 400);
+        }
+
+        $restaurant->menu;
+
+        return Response::json(array("error"=>false, 'restaurant'=>$restaurant), 200);
 	}
 
 
