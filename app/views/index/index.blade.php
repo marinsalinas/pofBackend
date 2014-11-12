@@ -167,6 +167,7 @@
 
             <div id="container-3">
                 <div class="box" data-anchor-target="#container-3" data-bottom="right: 25%; bottom:10%; opacity:0" data-top="right:25%;bottom:35%; opacity:1">
+                    <img id="logoPof" src="img/poffull2.png"/>
                     <h2>Esto es todo</h2>
                     <p>Te ha gustado nuestra idea? <br>Ponte en contacto con alguno de nosotros <br><a href="https://www.twitter.com/ferfrancuito" target="_blank">@ferfrancuito</a>, <a href="https://www.twitter.com/marinslns" target="_blank">@marinslns</a>, <a href="https://www.twitter.com/juank2502" target="_blank">@juank2502</a>, <a href="https://www.twitter.com/hozkarr" target="_blank">@hozkarr</a>.</p>
                 </div>

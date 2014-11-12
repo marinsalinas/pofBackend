@@ -165,11 +165,17 @@
 
 		.localiza h2{font-size: 50px; color: #ffa726; font-weight:300;text-align: center}
         .localiza p{color: #ff9800; font-family: Roboto-Bold}
+
+        #logoPof{
+            width: 30%;
+            display: block;
+            margin: 0 auto;
+        }
 					
 @media(max-width:767px) {
-	
-	
-	
+
+    #logoPof{width: 50%;  }
+
 		/* Menu */
 		#nav 		{display:none;margin: 0px 0 0px 0px;padding:0;float:left;width:100%; list-style: none;background: #e65100!important; }
 		#nav > li 	{float: left;margin: 0 0px 0 0;padding:0;position: relative;display: block;width:100%;}
