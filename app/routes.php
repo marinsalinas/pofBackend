@@ -45,6 +45,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::resource('addressbook', 'AddressAPIController');
 
     Route::resource('restaurants', 'RestaurantAPIController');
+    Route::resource('orders', 'OrdersAPIController');
 
 
 });
