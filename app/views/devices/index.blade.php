@@ -20,16 +20,20 @@
 
     <h1 style="text-align: center">Dispositivos</h1>
       @foreach($devices as $device)
+                                  <li hidden><{{$restaurant = Restaurant::whereId($device->restaurant_id)->first()}}</li>
         <div class="panel panel-default">
             <div class="panel-heading">
-              <i class="fa fa-users"></i> {{ link_to ("users/{$device->username}/edit", $device->username)}}
+              <i class="fa fa-eye"></i> {{ link_to ("users/{$device->name}/edit", $device->name)}}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <ul>
-                    <li>{{$device->imei}}</li>
-                    <li>{{$device->name}}</li>
-                    <li>{{$device->phone}}</li>
+                    <li>Restaurante: {{$restaurant->name}}</li>
+                    <li>IMEI: {{$device->imei}}</li>
+                    <li>Nombre: {{$device->name}}</li>
+                    <li>Telefono: {{$device->phone}}</li>
+                    <li>Descripcion: {{$device->description}}</li>
+                    <li>Estado: {{$device->status}}</li>
                 </ul>
             </div>
             <!-- /.panel-body -->

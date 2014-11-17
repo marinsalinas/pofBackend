@@ -27,7 +27,7 @@ class DevicesController extends BaseController
 
         $restaurants = Restaurant::all();
 
-        return View::make('menu.create',['users' => $users],['restaurants' => $restaurants]);
+        return View::make('devices.create',['users' => $users],['restaurants' => $restaurants]);
 
     }
 
@@ -38,7 +38,7 @@ class DevicesController extends BaseController
 
         $product = Menu::whereProduct($comida)->first();
 
-        return View::make('menu.edicion',['product' => $product],['users' => $users]);
+        return View::make('devices.edicion',['product' => $product],['users' => $users]);
 
     }
 
@@ -47,8 +47,10 @@ class DevicesController extends BaseController
         $validacion = Validator::make(Input::all(), [
 
             'restaurant_id' => 'required',
-            'product' => 'required',
-            'price' => 'required',
+            'imei' => 'required',
+            'name' => 'required',
+            'status' => 'required',
+            'phone' => 'required',
             'description' => 'required'
 
         ]);
@@ -58,14 +60,16 @@ class DevicesController extends BaseController
             return Redirect::back()->withInput()->withErrors($validacion);
         }
 
-        $menu = Menu::find($id);
-        $menu->restaurant_id=Input::get('restaurant_id');
-        $menu->product=Input::get('product');
-        $menu->price=Input::get('price');
-        $menu->description=Input::get('description');
-        $menu->save();
+        $device = Devices::find($id);
+        $device->restaurant_id=Input::get('restaurant_id');
+        $device->imei=Input::get('imei');
+        $device->name=Input::get('name');
+        $device->status=Input::get('status');
+        $device->phone=Input::get('phone');
+        $device->description=Input::get('description');
+        $device->save();
 
-        return Redirect::route('menu.index');
+        return Redirect::route('devices.index');
     }
 
     public function store()
@@ -73,8 +77,10 @@ class DevicesController extends BaseController
         $validacion = Validator::make(Input::all(), [
 
             'restaurant_id' => 'required',
-            'product' => 'required',
-            'price' => 'required',
+            'imei' => 'required',
+            'name' => 'required',
+            'status' => 'required',
+            'phone' => 'required',
             'description' => 'required'
 
         ]);
@@ -84,25 +90,27 @@ class DevicesController extends BaseController
             return Redirect::back()->withInput()->withErrors($validacion);
         }
 
-        $menu = new Menu;
-        $menu->restaurant_id=Input::get('restaurant_id');
-        $menu->product=Input::get('product');
-        $menu->price=Input::get('price');
-        $menu->description=Input::get('description');
-        $menu->save();
+        $device = new Devices();
+        $device->restaurant_id=Input::get('restaurant_id');
+        $device->imei=Input::get('imei');
+        $device->name=Input::get('name');
+        $device->status=Input::get('status');
+        $device->phone=Input::get('phone');
+        $device->description=Input::get('description');
+        $device->save();
 
-        return Redirect::route('menu.index');
+        return Redirect::route('devices.index');
 
     }
 
     public function destroy($id)
     {
 
-        $menu = Menu::find($id);
+        $device =  Devices::find($id);
 
-        $menu->delete();
+        $device->delete();
 
-        return Redirect::route('menu.index');
+        return Redirect::route('devices.index');
 
     }
 

@@ -81,8 +81,15 @@
                             <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
                         </li>
                         <li>
-                            <a href="../../devices"><i class="fa fa-car"></i> Dispositivos</a>
-                        </li>
+<a href="#"><i class="fa fa-cog"></i> Dispositivos<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                             <li>
+                                <a href="../../devices">Ver Dispositivos</a>
+                             </li>
+                             <li>
+                                <a href="../../devices/create"> Alta de Dispositivos</a>
+                             </li>
+                                </ul>                        </li>
                         <li>
                             <a href="../../logout"><i class="fa fa-cog"></i> Logout</a>
                         </li>
