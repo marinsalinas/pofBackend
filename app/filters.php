@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	if (Auth::user()->guest())
 	{
 		if (Request::ajax())
 		{
@@ -60,6 +60,8 @@ Route::filter('auth.token', function($route, $request){
     $payload = $request->header('X-Auth-Token');
     $user = User::where('api_token', $payload)->first();
 
+    //return Response::json(array("user"=>$user), 200);
+
     if(!$payload || !$user){
         $response = Response::json([
             'error'=> true,
@@ -70,7 +72,9 @@ Route::filter('auth.token', function($route, $request){
     }
 
 
-    Auth::setUser($user);
+    Auth::user()->setUser($user);
+
+    //return Response::json(array("user"=>Auth::user()->user()), 200);
 
 
 
