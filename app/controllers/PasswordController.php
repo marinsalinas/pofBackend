@@ -14,7 +14,7 @@ class PasswordController extends \BaseController
     public function  store()
     {
 
-        if (Auth::once(Input::only('username', 'password'))) {
+        if (Auth::user()->once(Input::only('username', 'password'))) {
             $user = User::whereUsername(Input::get('username'))->first();
             $user->api_token = hash('sha256', Str::random(10), false);
             $user->save();

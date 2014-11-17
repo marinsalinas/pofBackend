@@ -93,6 +93,4 @@ class UsersapiController extends \BaseController{
         return Response::json(array("error"=>false, "message"=>"Contraseña Actualizada para: ".$user->username), 200);
     }
 
-
-
 }
