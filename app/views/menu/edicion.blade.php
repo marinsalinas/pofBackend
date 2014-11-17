@@ -17,7 +17,10 @@
             </div>
                 <!-- /.panel-heading -->
                     <div class="panel-body">
-                                {{ Form::open(array('route' => array('menu.update', $product->id), 'method' => 'put')) }}
+                                {{ Form::open(array('route' => array('menu.update', $product->id), 'method' => 'put', 'files'=>true)) }}
+                            <div class="form-group">
+                                <img style="width: 80px; margin: 0 auto;" src="../../uploads/{{$product->image_url}}" />
+                            </div>
                             <div class="form-group">
                                 Restaurante <select name="restaurant_id">
                                     @foreach($restaurants as $restaurant)
@@ -42,6 +45,12 @@
                                     {{Form::label('description','Descripcion: ')}}
                                     {{Form::input('text','description', $product->description,array('class'=>'form-control'))}}
                                     {{$errors->first('description')}}
+                                </div>
+                                 <div class="form-group">
+                                {{ Form::label('photo', 'Logo') }}
+                                <!--así se crea un campo file en laravel-->
+                                {{ Form::file('photo') }}
+                                {{$errors->first('photo')}}
                                 </div>
                                 <div class="form-group">
                                 {{Form::submit('Cambiar',array('class'=>'btn btn-lg btn-success btn-block'))}}

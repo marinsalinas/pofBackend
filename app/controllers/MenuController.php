@@ -5,19 +5,9 @@ class MenuController extends BaseController
 
     public function index()
     {
-/*      $menu = new Menu;
-        $menu->restaurant_id=2;
-        $menu->product='tacos';
-        $menu->price='50';
-        $menu->description='al pastor :3';
-        $menu->save();*/
-
         $admins = Adminusr::all();
-
         $menus = Menu::all();
-
         return View::make('menu/index', ['menus' => $menus],['admins' => $admins]);
-
     }
 
     public function create()
@@ -44,6 +34,7 @@ class MenuController extends BaseController
 
     public function update($id)
     {
+
         $validacion = Validator::make(Input::all(), [
 
             'restaurant_id' => 'required',
@@ -53,30 +44,48 @@ class MenuController extends BaseController
 
         ]);
 
+
         if ($validacion->fails()) {
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
+
+        $file = Input::file("photo");
 
         $menu = Menu::find($id);
         $menu->restaurant_id=Input::get('restaurant_id');
         $menu->product=Input::get('product');
         $menu->price=Input::get('price');
         $menu->description=Input::get('description');
-        $menu->save();
+        $newFile = NULL;
+        $removeImg = NULL;
+        if($file != NULL){
+            $newFile = str_replace(' ', '', trim(Input::get("product")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
+            $removeImg = $menu->image_url;
+            $menu->image_url = $newFile;
+
+        }
+
+        if($menu->save() && $file != null){
+            File::delete("uploads/".$removeImg);
+            $file->move("uploads",$newFile);
+        }
 
         return Redirect::route('menu.index');
     }
 
     public function store()
     {
-        $validacion = Validator::make(Input::all(), [
+        $file = Input::file("photo");
 
+
+
+        $validacion = Validator::make(Input::all(), [
             'restaurant_id' => 'required',
             'product' => 'required',
             'price' => 'required',
-            'description' => 'required'
-
+            'description' => 'required',
+            'photo' => 'required'
         ]);
 
         if ($validacion->fails()) {
@@ -85,12 +94,15 @@ class MenuController extends BaseController
         }
 
         $menu = new Menu;
+        $newFileName = str_replace(' ', '', trim(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
         $menu->restaurant_id=Input::get('restaurant_id');
         $menu->product=Input::get('product');
         $menu->price=Input::get('price');
         $menu->description=Input::get('description');
-        $menu->save();
-
+        $menu->image_url = $newFileName;
+        if($menu->save()){
+            $file->move("uploads",$newFileName);
+        }
         return Redirect::route('menu.index');
 
     }
