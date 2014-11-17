@@ -44,20 +44,19 @@ class OrdersAPIController extends \BaseController {
         /*{
         orders: {
                 address_id: 3
-                restaurant_id: 4
-                items_id: [n]
-                    0:  1
-                    1:  2
-                    2:  3
-                    3:  4
-                    n:  2
-                items_q: [n]
-                    0:  4
+                restaurant_id: 3
+                items_id: [n] //Menu
+                    0:  18
+                    1:  19
+                    2:  20
+                items_q: [n] //Cantidad
+                    0:  2
                     1:  3
-                    2:  4
-                    3:  5
-                    n: 5
+                    2:  1
         }*/
+
+
+
 
 
 
