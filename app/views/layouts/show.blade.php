@@ -81,7 +81,7 @@
                             <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cog"></i> Dispositivos</a>
+                            <a href="../devices"><i class="fa fa-car"></i> Dispositivos</a>
                         </li>
                         <li>
                             <a href="../logout"><i class="fa fa-cog"></i> Logout</a>
