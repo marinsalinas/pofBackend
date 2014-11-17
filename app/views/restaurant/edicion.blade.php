@@ -13,7 +13,10 @@
             </div>
                 <!-- /.panel-heading -->
                         <div class="panel-body">
-                                {{ Form::open(array('route' => array('restaurant.update', $restaurant->id), 'method' => 'put')) }}
+                                <div class="form-group">
+                                    <img style="width: 80px; margin: 0 auto;" src="../../uploads/{{$restaurant->image_url}}" />
+                                </div>
+                                {{ Form::open(array('route' => array('restaurant.update', $restaurant->id), 'method' => 'put', 'files'=>true)) }}
                                 <div class="form-group">
                                     {{Form::input('text','name', $restaurant->name ,array('id'=>'restName','class'=>'form-control'))}}
                                     {{$errors->first('name')}}
@@ -37,12 +40,19 @@
                                     {{$errors->first('description')}}
                                 </div>
                                 <div class="form-group">
+
+                                                                    {{ Form::label('photo', 'Logo') }}
+                                                                    <!--así se crea un campo file en laravel-->
+                                                                    {{ Form::file('photo') }}
+                                                                    {{$errors->first('photo')}}
+                                                                    </div>
+                                <div class="form-group">
                                     {{Form::input('hidden','latitude', $restaurant->location->latitude,array('id'=>'rest-lat','class'=>'form-control'))}}
                                     {{$errors->first('latitude')}}
                                 </div>
                                 <div class="form-group">
                                     {{Form::input('hidden','longitude', $restaurant->location->longitude,array('id'=>'rest-lng','class'=>'form-control'))}}
-                                 {  {$errors->first('longitude')}}
+                                 {{$errors->first('longitude')}}
                                  </div>
                                  <div class="form-group">
                                      <div id="map-canvas" style="width: 100%; height: 250px;"></div>

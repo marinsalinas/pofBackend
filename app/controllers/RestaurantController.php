@@ -61,23 +61,34 @@ class RestaurantController extends BaseController
 
     public function update($id)
     {
-        $validacion = Validator::make(Input::all(), [
+        $file = Input::file("photo");
+        $dataUpload = array(
+            'name' => Input::get('username'),
+            'textaddress' => Input::get('textaddress'),
+            'onlycash' => Input::get('onlycash'),
+            'type' => Input::get('type'),
+            'description' => Input::get('description'),
+            'latitude' => Input::get('latitude'),
+            'longitude' => Input::get('longitude'),
+            "photo" => $file
+        );
 
+        $validacion = Validator::make(Input::all(), [
             'name' => 'required',
             'textaddress' => 'required',
             'onlycash' => 'required',
             'type' => 'required',
             'description' => 'required',
             'latitude' => 'required',
-            'longitude' => 'required'
-
-
+            'longitude' => 'required',
+            'photo' => 'required'
         ]);
 
         if ($validacion->fails()) {
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
+        $newFileName = Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension();
         $restaurant = Restaurant::find($id);
         $restaurant->name = Input::get('name');
         $restaurant->textaddress = Input::get('textaddress');
@@ -85,30 +96,48 @@ class RestaurantController extends BaseController
         $restaurant->type=Input::get('type');
         $restaurant->description= Input::get('description');
         $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
-        $restaurant->save();
+        $removeImg = $restaurant->image_url;
+        $restaurant->image_url = $newFileName;
+        if($restaurant->save()){
+            File::delete("uploads/".$removeImg);
+            $file->move("uploads",$newFileName);
+        }
 
         return Redirect::route('restaurant.index');
     }
 
     public function store()
     {
-        $validacion = Validator::make(Input::all(), [
+        $file = Input::file("photo");
+        $dataUpload = array(
+            'name' => Input::get('username'),
+            'textaddress' => Input::get('textaddress'),
+            'onlycash' => Input::get('onlycash'),
+            'type' => Input::get('type'),
+            'description' => Input::get('description'),
+            'latitude' => Input::get('latitude'),
+            'longitude' => Input::get('longitude'),
+            "photo" => $file
+        );
 
+        $validacion = Validator::make(Input::all(), [
             'name' => 'required',
             'textaddress' => 'required',
             'onlycash' => 'required',
             'type' => 'required',
             'description' => 'required',
             'latitude' => 'required',
-            'longitude' => 'required'
-
-
+            'longitude' => 'required',
+            'photo' => 'required'
         ]);
 
         if ($validacion->fails()) {
-
+            //dd($validacion->messages());
             return Redirect::back()->withInput()->withErrors($validacion);
         }
+
+
+        $newFileName = Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension();
         $restaurant = new Restaurant;
         $restaurant->name = Input::get('name');
         $restaurant->textaddress = Input::get('textaddress');
@@ -116,21 +145,21 @@ class RestaurantController extends BaseController
         $restaurant->type=Input::get('type');
         $restaurant->description= Input::get('description');
         $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
-        $restaurant->save();
+        $restaurant->image_url = $newFileName;
+        if($restaurant->save()){
+            $file->move("uploads",$newFileName);
+        }
+
+
 
         return Redirect::route('restaurant.index');
-
     }
 
     public function destroy($id)
     {
-
         $restaurant = Restaurant::find($id);
-
         $restaurant->delete();
-
         return Redirect::route('restaurant.index');
-
     }
 
 }
