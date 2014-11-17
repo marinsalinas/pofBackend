@@ -34,21 +34,21 @@
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="../users"><i class="fa fa-home"></i> Inicio</a>
+                            <a href="../admins"><i class="fa fa-home"></i> Inicio</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="../users/create"> Alta de usuarios</a>
+                                    <a href="../admins/create"> Alta de usuarios</a>
                                 </li>
                                 <li>
                                     <a href="#">Edicion de Usuarios <span class="fa arrow"></span></a>
                                         <!-- /.nav-second-level -->
                                     <ul class="nav nav-third-level">
-                                        @foreach($users as $user)
-                                            <li> {{ link_to ("users/{$user->username}/edit", $user->username)}}</li>
-                                          @endforeach
+                                       @foreach($admins as $admin)
+                                       <li> {{ link_to ("admins/{$admin->username}/edit", $admin->username)}}</li>
+                                       @endforeach
                                     </ul >
                                         <!-- /.nav-third-level -->
                                 </li>

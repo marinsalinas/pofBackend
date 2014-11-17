@@ -4,7 +4,6 @@ Route::get('/', function () {
     return View::make('index/index');
 });
 
-
 Route::get('test', function () {
 
     //$restaurant = Restaurant::all();
@@ -30,7 +29,7 @@ Route::post('store', 'SessionsController@store');
 
 //users Controler
 Route::group(array('before' => 'auth'), function () {
-    Route::resource('users', 'UsersController');
+    // usuarios para despues -> Route::resource('users', 'UsersController');
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('menu', 'MenuController');
     Route::resource('devices', 'DevicesController');
@@ -38,9 +37,8 @@ Route::group(array('before' => 'auth'), function () {
 
 });
 
-
-//Rutas Para API RESTFUL
-Route::group(array('prefix' => 'api/v1'), function () {
+    //Rutas Para API RESTFUL
+    Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('login', 'PasswordController@store');
     Route::get('logout', 'PasswordController@destroy');
 

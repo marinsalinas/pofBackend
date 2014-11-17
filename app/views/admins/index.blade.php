@@ -19,17 +19,17 @@
                 <div class="col-lg-4">
 
     <h1 style="text-align: center">Admins</h1>
-      @foreach($users as $user)
+      @foreach($admins as $admin)
         <div class="panel panel-default">
             <div class="panel-heading">
-              <i class="fa fa-users"></i> {{ link_to ("users/{$user->username}/edit", $user->username)}}
+              <i class="fa fa-users"></i> {{ link_to ("admins/{$admin->username}/edit", $admin->username)}}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <ul>
-                    <li>{{$user->email}}</li>
-                    <li>{{$user->fullname}}</li>
-                    <li>{{$user->phone}}</li>
+                    <li>{{$admin->email}}</li>
+                    <li>{{$admin->fullname}}</li>
+                    <li>{{$admin->phone}}</li>
                 </ul>
             </div>
             <!-- /.panel-body -->

@@ -12,33 +12,33 @@ class DevicesController extends BaseController
                 $menu->description='al pastor :3';
                 $menu->save();*/
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
         $devices = Devices::all();
 
-        return View::make('devices/index', ['devices' => $devices],['users' => $users]);
+        return View::make('devices/index', ['devices' => $devices],['admins' => $admins]);
 
     }
 
     public function create()
     {
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
         $restaurants = Restaurant::all();
 
-        return View::make('devices.create',['users' => $users],['restaurants' => $restaurants]);
+        return View::make('devices.create',['admins' => $admins],['restaurants' => $restaurants]);
 
     }
 
     public function edit($name)
     {
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
         $device = Devices::whereName($name)->first();
 
-        return View::make('devices.edicion',['device' => $device],['users' => $users]);
+        return View::make('devices.edicion',['device' => $device],['admins' => $admins]);
 
     }
 

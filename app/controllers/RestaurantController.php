@@ -15,7 +15,8 @@ class RestaurantController extends BaseController
         $restaurant->save();*/
 
         $restaurants = Restaurant::all();
-        $users = User::all();
+
+        $admins = Adminusr::all();
 
         if(Request::ajax()){
             $response =  Response::json(array('error'=>false, 'restaurants'=>$restaurants), 200);
@@ -23,7 +24,7 @@ class RestaurantController extends BaseController
             return $response;
        }
 
-        $response = Response::make(View::make('restaurant/index', ['restaurants' => $restaurants],['users' => $users, 'view'=>'restaurant']));
+        $response = Response::make(View::make('restaurant/index', ['restaurants' => $restaurants],['admins' => $admins, 'view'=>'restaurant']));
         $response->header('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');
         return $response;
 
@@ -33,18 +34,18 @@ class RestaurantController extends BaseController
 
         $restaurant = Restaurant::whereName($name)->first();
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
-        return View::make('restaurant.detalle', ['restaurant' => $restaurant], ['users' => $users]);
+        return View::make('restaurant.detalle', ['restaurant' => $restaurant], ['admins' => $admins]);
     }
 
     public function create()
     {
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
 
-        return View::make('restaurant.create',['users' => $users]);
+        return View::make('restaurant.create',['admins' => $admins]);
 
     }
 
@@ -53,9 +54,9 @@ class RestaurantController extends BaseController
 
         $restaurant = Restaurant::whereName($name)->first();
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
-        return View::make('restaurant.edicion', ['restaurant' => $restaurant], ['users' => $users]);
+        return View::make('restaurant.edicion', ['restaurant' => $restaurant], ['admins' => $admins]);
     }
 
     public function update($id)
