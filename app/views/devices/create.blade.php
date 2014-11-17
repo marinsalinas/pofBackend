@@ -28,11 +28,11 @@
                                     {{$errors->first('name')}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::input('text','phone', null,array('class'=>'form-control','placeholder'=>'Telefono dle dispositivo'))}}
+                                    {{Form::input('text','phone', null,array('class'=>'form-control','placeholder'=>'Telefono del dispositivo'))}}
                                     {{$errors->first('phone')}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion de la comida'))}}
+                                    {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion del dispositivo'))}}
                                     {{$errors->first('description')}}
                                 </div>
                                 <div class="form-group">

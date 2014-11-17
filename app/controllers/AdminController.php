@@ -6,9 +6,9 @@ class AdminController extends \BaseController
     public function index()
     {
 
-        $users = User::all();
+        $users = Adminusr::all();
 
-        return View::make('users/index', ['users' => $users]);
+        return View::make('admins/index', ['users' => $users]);
 
     }
 
