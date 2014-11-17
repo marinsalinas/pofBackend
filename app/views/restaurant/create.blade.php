@@ -9,7 +9,7 @@
                         <h3 class="panel-title">Alta de restaurante</h3>
                     </div>
                         <div class="panel-body">
-                            {{Form::open(['route'=> 'restaurant.store'])}}
+                            {{Form::open(['route'=> 'restaurant.store',  'files' => true])}}
                                 <div class="form-group">
                                     {{Form::input('text','name', null,array('class'=>'form-control','placeholder'=>'Nombre del Restaurante'))}}
                                     {{$errors->first('name')}}
@@ -29,8 +29,15 @@
                                 </div>
                                 <div class="form-group">
                                     {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion'))}}
-                                    {{$errors->first('type')}}
+                                    {{$errors->first('description')}}
                                 </div>
+                                <div class="form-group">
+
+                                    {{ Form::label('photo', 'Logo') }}
+                                    <!--así se crea un campo file en laravel-->
+                                    {{ Form::file('photo') }}
+                                    {{$errors->first('photo')}}
+                                    </div>
                                 <div class="form-group">
                                 {{Form::input('hidden','latitude', null,array('id'=>'rest-lat','class'=>'form-control','placeholder'=>'Latitud'))}}
                                 {{$errors->first('latitude')}}
