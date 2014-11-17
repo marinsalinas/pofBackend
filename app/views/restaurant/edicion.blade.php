@@ -23,9 +23,10 @@
                                     {{$errors->first('textaddress')}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::label('onlycash','Solo acepta efectivo ? : ')}}
-                                    {{Form::select('onlycash', array('No','Si'),'No');}}
-                                    {{$errors->first('onlycash')}}
+                                    <select name="onlycash">
+                                        <option value="No" @if($restaurant->onlycash=='No')selected=yes @endif>No</option>
+                                        <option value="Si"@if($restaurant->onlycash=='Si')selected=yes @endif>Si</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     {{Form::input('text','type', $restaurant->type,array('class'=>'form-control'))}}
@@ -36,12 +37,12 @@
                                     {{$errors->first('description')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('hidden','latitude', $restaurant->location->latitude,array('id'=>'rest-lat','class'=>'form-control'))}}
-                                {{$errors->first('latitude')}}
+                                    {{Form::input('hidden','latitude', $restaurant->location->latitude,array('id'=>'rest-lat','class'=>'form-control'))}}
+                                    {{$errors->first('latitude')}}
                                 </div>
                                 <div class="form-group">
-                                {{Form::input('hidden','longitude', $restaurant->location->longitude,array('id'=>'rest-lng','class'=>'form-control'))}}
-                                 {{$errors->first('longitude')}}
+                                    {{Form::input('hidden','longitude', $restaurant->location->longitude,array('id'=>'rest-lng','class'=>'form-control'))}}
+                                 {  {$errors->first('longitude')}}
                                  </div>
                                  <div class="form-group">
                                      <div id="map-canvas" style="width: 100%; height: 250px;"></div>
