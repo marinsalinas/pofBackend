@@ -97,7 +97,7 @@ class AddressAPIController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user = Auth::user();
+		$user = Auth::user()->user();
         $address = $user->address()->where('id', '=' ,$id)->first();
 
         if($address == null){
@@ -105,7 +105,7 @@ class AddressAPIController extends \BaseController {
         }
 
         $validacion = Validator::make(Input::all(), [
-            'label' => 'required|unique:address,label,'.$id.',id,user_id,'.Auth::user()->id,
+            'label' => 'required|unique:address,label,'.$id.',id,user_id,'.Auth::user()->user()->id,
             'description' => 'required',
             'textaddress' => 'required',
             'latitude' => 'required',
@@ -135,7 +135,7 @@ class AddressAPIController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-        $user = Auth::user();
+        $user = Auth::user()->user();
         $address = $user->address()->where('id', '=' ,$id)->first();
 
         if($address == null){
