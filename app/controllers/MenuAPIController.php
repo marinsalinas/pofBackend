@@ -2,6 +2,11 @@
 
 class MenuAPIController extends \BaseController {
 
+    function __construct() {
+        //Con esto le digo que no le aplique el filtro a la funcion store.
+        $this->beforeFilter('auth.token', array('except' => array('store')));
+        // ...
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +14,7 @@ class MenuAPIController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        return Response::json(array('error' => false, 'user'=> Auth::user()), 200);
 	}
 
 
@@ -55,7 +60,15 @@ class MenuAPIController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        $comidas = Restaurant::whereName($id)->first();
+
+        if($comidas == null){
+            return Response::json(array('error'=>true, 'message'=>'No se encontro restaurante'), 400);
+        }
+
+        $comidas->product;
+
+        return Response::json(array("error"=>false, 'restaurant'=>$comidas), 200);
 	}
 
 

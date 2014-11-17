@@ -8,7 +8,6 @@ class UsersapiController extends \BaseController{
         // ...
     }
 
-
     public function index(){
         return Response::json(array('error' => false, 'user'=> Auth::user()), 200);
     }
