@@ -76,7 +76,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-map-marker"></i> Pedidos</a>
+                            <a href="orders"><i class="fa fa-map-marker"></i> Pedidos</a>
 
                         </li>
                         <li>
