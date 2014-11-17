@@ -88,7 +88,7 @@ class RestaurantController extends BaseController
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-        $newFileName = Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension();
+        $newFileName = str_replace(' ', '',(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
         $restaurant = Restaurant::find($id);
         $restaurant->name = Input::get('name');
         $restaurant->textaddress = Input::get('textaddress');
@@ -137,7 +137,7 @@ class RestaurantController extends BaseController
         }
 
 
-        $newFileName = Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension();
+        $newFileName = str_replace(' ', '', trim(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
         $restaurant = new Restaurant;
         $restaurant->name = Input::get('name');
         $restaurant->textaddress = Input::get('textaddress');
