@@ -28,7 +28,7 @@
                                     {{$errors->first('price')}}
                                 </div>
                                 <div class="form-group">
-                                    {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion de la comida'))}}
+                                    {{Form::input('text','description', null,array('class'=>'form-control','placeholder'=>'Descripcion de la dispositivo'))}}
                                     {{$errors->first('description')}}
                                 </div>
                                 <div class="form-group">
