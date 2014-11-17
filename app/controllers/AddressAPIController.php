@@ -17,7 +17,7 @@ class AddressAPIController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(array('addressbook'=>Auth::user()->address),200);
+		return Response::json(array('addressbook'=>Auth::user()->user()->address),200);
 	}
 
 
@@ -40,7 +40,7 @@ class AddressAPIController extends \BaseController {
 	public function store()
 	{
         $validacion = Validator::make(Input::all(), [
-            'label' => 'required|unique:address,label,NULL,id,user_id,'.Auth::user()->id,
+            'label' => 'required|unique:address,label,NULL,id,user_id,'.Auth::user()->user()->id,
             'description' => 'required',
             'textaddress' => 'required',
             'latitude' => 'required',
@@ -51,7 +51,7 @@ class AddressAPIController extends \BaseController {
             return Response::json(array('error' => true, 'messages' => $validacion->messages()), 400);
         }
 
-        $user = Auth::user();
+        $user = Auth::user()->user();
         $address = new Address;
         $address->label = Input::get('label');
         $address->description = Input::get('description');
