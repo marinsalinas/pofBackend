@@ -34,7 +34,7 @@ Route::group(array('before' => 'auth'), function () {
     Route::resource('menu', 'MenuController');
     Route::resource('devices', 'DevicesController');
     Route::resource('admins', 'AdminController');
-
+    Route::resource('orders', 'OrdersController');
 });
 
     //Rutas Para API RESTFUL
