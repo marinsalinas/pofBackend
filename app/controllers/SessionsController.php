@@ -6,7 +6,7 @@ class SessionsController extends BaseController
     {
         if (Auth::admin()->check()) {
 
-            return Redirect::to('users');
+            return Redirect::to('admins');
         }
 
         return View::make('sessions.login');
@@ -24,7 +24,7 @@ class SessionsController extends BaseController
 
     public function destroy()
     {
-        Auth::user()->logout();
+        Auth::admin()->logout();
 
         return Redirect::to('login');
     }

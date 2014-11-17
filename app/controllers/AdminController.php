@@ -6,28 +6,21 @@ class AdminController extends \BaseController
     public function index()
     {
 
-        $users = Adminusr::all();
+        $admins = Adminusr::all();
 
-        return View::make('admins/index', ['users' => $users]);
+        return View::make('admins/index', ['admins' => $admins]);
 
     }
 
-    public function  show($username)
-    {
-
-        $user = User::whereUsername($username)->first();
-
-        return View::make('users.detalle', ['user' => $user]);
-    }
 
     public function  edit($username)
     {
 
-        $user = User::whereUsername($username)->first();
+        $admin = Adminusr::whereUsername($username)->first();
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
-        return View::make('users.edicion', ['user' => $user], ['users' => $users]);
+        return View::make('admins.edicion', ['admin' => $admin], ['admins' => $admins]);
     }
 
     public function update($id)
@@ -48,26 +41,25 @@ class AdminController extends \BaseController
             return Redirect::back()->withInput()->withErrors($validacion);
         }
 
-        $user = User::find($id); // esta es la diferencia a almetodo store!
-        $user->username = Input::get('username');
-        $user->password = Hash::make(Input::get('password'));
-        $user->fullname = Input::get('fullname');
-        $user->email = Input::get('email');
-        $user->phone = Input::get('phone');
-        $user->save();
+        $admin = Adminusr::find($id); // esta es la diferencia a almetodo store!
+        $admin->username = Input::get('username');
+        $admin->password = Hash::make(Input::get('password'));
+        $admin->fullname = Input::get('fullname');
+        $admin->email = Input::get('email');
+        $admin->phone = Input::get('phone');
+        $admin->save();
 
-        Session::flash('message', 'Successfully updated nerd!');
 
-        return Redirect::to('users');
+        return Redirect::to('admins');
 
     }
 
     public function create()
     {
-        $users = User::all();
+        $admins = Adminusr::all();
 
 
-        return View::make('users/create', ['users' => $users]);
+        return View::make('admins/create', ['admins' => $admins]);
     }
 
     public function store()
@@ -87,26 +79,26 @@ class AdminController extends \BaseController
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-        $user = new User;
-        $user->username = Input::get('username');
-        $user->password = Hash::make(Input::get('password'));
-        $user->fullname = Input::get('fullname');
-        $user->email = Input::get('email');
-        $user->phone = Input::get('phone');
-        $user->save();
+        $admin = new Adminusr;
+        $admin->username = Input::get('username');
+        $admin->password = Hash::make(Input::get('password'));
+        $admin->fullname = Input::get('fullname');
+        $admin->email = Input::get('email');
+        $admin->phone = Input::get('phone');
+        $admin->save();
 
-        return Redirect::route('users.index');
+        return Redirect::route('admins.index');
 
     }
 
     public function destroy($id)
     {
 
-        $user = User::find($id);
+        $admin = Adminusr::find($id);
 
-        $user->delete();
+        $admin->delete();
 
-        return Redirect::route('users.index');
+        return Redirect::route('admins.index');
 
     }
 }

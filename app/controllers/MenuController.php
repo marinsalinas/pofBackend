@@ -5,40 +5,40 @@ class MenuController extends BaseController
 
     public function index()
     {
-/*        $menu = new Menu;
+/*      $menu = new Menu;
         $menu->restaurant_id=2;
         $menu->product='tacos';
         $menu->price='50';
         $menu->description='al pastor :3';
         $menu->save();*/
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
         $menus = Menu::all();
 
-        return View::make('menu/index', ['menus' => $menus],['users' => $users]);
+        return View::make('menu/index', ['menus' => $menus],['admins' => $admins]);
 
     }
 
     public function create()
     {
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
         $restaurants = Restaurant::all();
 
-        return View::make('menu.create',['users' => $users],['restaurants' => $restaurants]);
+        return View::make('menu.create',['admins' => $admins],['restaurants' => $restaurants]);
 
     }
 
     public function edit($comida)
     {
 
-        $users = User::all();
+        $admins = Adminusr::all();
 
         $product = Menu::whereProduct($comida)->first();
 
-        return View::make('menu.edicion',['product' => $product],['users' => $users]);
+        return View::make('menu.edicion',['product' => $product],['admins' => $admins]);
 
     }
 
