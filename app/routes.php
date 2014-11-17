@@ -30,6 +30,7 @@ Route::group(array('before' => 'auth'), function () {
     Route::resource('users', 'UsersController');
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('menu', 'MenuController');
+    Route::resource('devices', 'DevicesController');
 
 });
 
