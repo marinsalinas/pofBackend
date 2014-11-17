@@ -9,7 +9,7 @@ class UsersapiController extends \BaseController{
     }
 
     public function index(){
-        return Response::json(array('error' => false, 'user'=> Auth::user()), 200);
+        return Response::json(array('error' => false, 'user'=> Auth::user()->user()), 200);
     }
 
     public function store(){
@@ -38,7 +38,7 @@ class UsersapiController extends \BaseController{
     }
 
     public function update($id){
-        $user = Auth::user();
+        $user = Auth::user()->user();
 
         if($user->id != $id){
             return Response::json(array('error'=>true, 'message'=> 'Operacion No permitida'), 400);
@@ -72,7 +72,7 @@ class UsersapiController extends \BaseController{
     }
 
     public function password($id){
-        $user = Auth::user();
+        $user = Auth::user()->user();
 
         if($user->id != $id){
             return Response::json(array('error'=>true, 'message'=> 'Operacion No permitida'), 400);
