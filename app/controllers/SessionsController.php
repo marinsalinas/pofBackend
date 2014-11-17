@@ -2,11 +2,9 @@
 
 class SessionsController extends BaseController
 {
-
-
     public function create()
     {
-        if (Auth::user()->check()) {
+        if (Auth::admin()->check()) {
 
             return Redirect::to('users');
         }
@@ -17,7 +15,7 @@ class SessionsController extends BaseController
 
     public function store()
     {
-        if (Auth::user()->attempt(Input::only('username', 'password'))) {
+        if (Auth::admin()->attempt(Input::only('username', 'password'))) {
             return Redirect::back()->withInput();
         }
         return Redirect::to('login');
@@ -26,7 +24,7 @@ class SessionsController extends BaseController
 
     public function destroy()
     {
-        Auth::logout();
+        Auth::user()->logout();
 
         return Redirect::to('login');
     }

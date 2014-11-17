@@ -11,10 +11,13 @@ Route::get('test', function () {
 
     //return View::make('test',['restaurant' => $restaurant]);
 
-    $encrypted = Crypt::encrypt('secret');
-    $decrypted = Crypt::decrypt($encrypted);
-     return $decrypted;
-
+    /*$admin = new Adminusr();
+    $admin->username='oscar';
+    $admin->password=Hash::make('kirby94');
+    $admin->phone='8114999160';
+    $admin->email='oscar.luis.garcia94@gmail.com';
+    $admin->fullname='oscar luis garcia ruiz fernandez';
+    $admin->save();*/
 
 });
 
@@ -31,6 +34,7 @@ Route::group(array('before' => 'auth'), function () {
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('menu', 'MenuController');
     Route::resource('devices', 'DevicesController');
+    Route::resource('admins', 'AdminController');
 
 });
 

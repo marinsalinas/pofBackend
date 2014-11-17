@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::user()->guest())
+	if (Auth::admin()->guest())
 	{
 		if (Request::ajax())
 		{
@@ -93,7 +93,7 @@ Route::filter('auth.token', function($route, $request){
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::admin()->check()) return Redirect::to('/');
 });
 
 /*
