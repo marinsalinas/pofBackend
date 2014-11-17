@@ -23,7 +23,7 @@
                                   <li hidden><{{$restaurant = Restaurant::whereId($device->restaurant_id)->first()}}</li>
         <div class="panel panel-default">
             <div class="panel-heading">
-              <i class="fa fa-eye"></i> {{ link_to ("users/{$device->name}/edit", $device->name)}}
+              <i class="fa fa-eye"></i> {{ link_to ("devices/{$device->name}/edit", $device->name)}}
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">

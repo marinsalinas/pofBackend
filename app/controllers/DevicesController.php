@@ -31,14 +31,14 @@ class DevicesController extends BaseController
 
     }
 
-    public function edit($comida)
+    public function edit($name)
     {
 
         $users = User::all();
 
-        $product = Menu::whereProduct($comida)->first();
+        $device = Devices::whereName($name)->first();
 
-        return View::make('devices.edicion',['product' => $product],['users' => $users]);
+        return View::make('devices.edicion',['device' => $device],['users' => $users]);
 
     }
 
