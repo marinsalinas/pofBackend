@@ -6,7 +6,7 @@
  * Time: 10:46 AM
  */
 
-class Order extends Eloquent{
+class Orders extends Eloquent{
 
     protected $table = 'orders';
 
