@@ -9,10 +9,14 @@
 class Item extends Eloquent {
 
     protected $table = 'items';
-
+    public $timestamps = false;
 
     function order(){
-        $this->belongsTo('Order', 'order_id');
+        return $this->belongsTo('Order', 'order_id');
+    }
+
+    function menu(){
+        return $this->belongsTo('Menu', 'menu_id');
     }
 
 

@@ -6,5 +6,9 @@ class Devices extends Eloquent {
 
     protected $fillable = array('imei','restaurant_id','name','phone','description','status');
 
+    public function  order(){
+        return $this->hasMany('Orders', 'order_id');
+    }
+
 
 }

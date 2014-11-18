@@ -27,5 +27,9 @@ class Orders extends Eloquent{
         return $this->belongsTo('Restaurant', 'restaurant_id');
     }
 
+    function device(){
+        return $this->belongsTo('Devices', 'device_id');
+    }
+
 
 }

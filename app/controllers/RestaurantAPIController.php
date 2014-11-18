@@ -49,8 +49,10 @@ class RestaurantAPIController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        $restaurant = Restaurant::find($id)->first();
 
+
+        $restaurant = Restaurant::find($id);
+        //dd($restaurant);
         if($restaurant == null){
             return Response::json(array('error'=>true, 'message'=>'No se encontro restaurante'), 400);
         }
