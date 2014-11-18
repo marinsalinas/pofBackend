@@ -9,15 +9,7 @@
 @section('ocho')
 
                 <div class="col-lg-8">
-
-                    <!-- /.panel -->
-                </div>
-
-@stop
-
-@section('cuatro')
-                <div class="col-lg-4">
-    <h1 style="text-align: center">Menus</h1>
+{{--<h1 style="text-align: center">Menus</h1>--}}
       @foreach($menus as $menu)
         <div class="panel panel-default">
                             <li hidden><{{$restaurant = Restaurant::whereId($menu->restaurant_id)->first()}}</li>
@@ -37,5 +29,13 @@
         </div>
 
       @endforeach
+                    <!-- /.panel -->
+                </div>
+
+@stop
+
+@section('cuatro')
+                <div class="col-lg-4">
+
       </div>
 @stop
