@@ -17,7 +17,12 @@ class OrdersAPIController extends \BaseController {
      */
     public function index()
     {
-        return Response::json(array('error'=>false,'orders'=>'HOLA'),200);
+        $history = Input::get('history');
+
+        if(!$history){
+            return Response::json(array('error'=>false,'orders'=>Auth::user()->user()->orders()->where('status', '!=','Entregado')->get()),200);
+        }
+        return Response::json(array('error'=>false,'orders'=>Auth::user()->user()->orders->where('status', '=','Entregado')->get(),200));
     }
 
 
