@@ -23,6 +23,55 @@ class OrdersController extends \BaseController
 
     }
 
+    public function update($id)
+    {
+
+        $validacion = Validator::make(Input::all(), [
+
+            'id_device' => 'required'
+
+        ]);
+
+        if ($validacion->fails()) {
+
+            return Redirect::back()->withInput()->withErrors($validacion);
+        }
+
+        $order = Orders::find($id); // esta es la diferencia a almetodo store!
+
+        if($order->status=='En Proceso'){
+            $order->status='En Camino';
+            $order->device_id = Input::get('id_device');
+
+            $device = Devices::whereId(Input::get('id_device'))->first();
+            $device->status = 'Activo';
+            $device->save();
+        }
+        else{
+            $order->status=Input::get('id_device');
+        }
+
+        $order->save();
+
+        return Redirect::to('orders');
+
+    }
+
+    public function destroy($id)
+    {
+
+        $order = Orders::find($id);
+        $order->status= 'Entregado';
+        $order->save();
+
+        $device = Devices::whereId($order->device_id)->first();
+        $device->status='Inactivo';
+        $device->save();
+
+        return Redirect::route('orders.index');
+
+    }
+
   /*  public function  edit($username)
     {
 
@@ -33,36 +82,6 @@ class OrdersController extends \BaseController
         return View::make('admins.edicion', ['admin' => $admin], ['admins' => $admins]);
     }
 
-    public function update($id)
-    {
-
-        $validacion = Validator::make(Input::all(), [
-
-            'username' => 'required',
-            'fullname' => 'required',
-            'email' => 'required',
-            'phone' => 'required'
-
-
-        ]);
-
-        if ($validacion->fails()) {
-
-            return Redirect::back()->withInput()->withErrors($validacion);
-        }
-
-        $admin = Adminusr::find($id); // esta es la diferencia a almetodo store!
-        $admin->username = Input::get('username');
-        $admin->password = Hash::make(Input::get('password'));
-        $admin->fullname = Input::get('fullname');
-        $admin->email = Input::get('email');
-        $admin->phone = Input::get('phone');
-        $admin->save();
-
-
-        return Redirect::to('admins');
-
-    }
 
     public function create()
     {
@@ -101,14 +120,5 @@ class OrdersController extends \BaseController
 
     }
 
-    public function destroy($id)
-    {
-
-        $admin = Adminusr::find($id);
-
-        $admin->delete();
-
-        return Redirect::route('admins.index');
-
-    }*/
+    */
 }
