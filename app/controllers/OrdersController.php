@@ -7,8 +7,19 @@ class OrdersController extends \BaseController
     {
 
         $admins = Adminusr::all();
+        $orders = Orders::all();
 
-        return View::make('orders/index', ['admins' => $admins]);
+        return View::make('orders/index', ['admins' => $admins],['orders'=>$orders]);
+
+    }
+
+    public function show($order){
+
+        $order = Orders::whereId($order)->first();
+
+        $admins = Adminusr::all();
+
+        return View::make('orders.detalle', ['order' => $order], ['admins' => $admins]);
 
     }
 
