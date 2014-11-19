@@ -124,7 +124,7 @@ gmap.init = function() {
 
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: '<b>Velocidad:'+data.last_report.speed+'</b>'
+                        content: '<b>Status: '+data.last_report.status+'</b><br/><b>Velocidad: '+data.last_report.speed+' kph</b>'
                     });
                     infowindow.open(gmap.map, marker);
 
