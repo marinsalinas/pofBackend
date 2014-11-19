@@ -38,7 +38,7 @@ gmap.init = function() {
                     infowindow.open(gmap.map, marker);
 
                     google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,marker);
+                        infowindow.open(gmap.map,marker);
                     });
 
                 }

@@ -121,27 +121,18 @@ gmap.init = function() {
                 console.log(marker);
 
 
-                /*for(i=0; i< data.restaurants.length; i++){
-                    console.log(data.restaurants[i]);
-                    var postition =  new google.maps.LatLng(data.restaurants[i].location.latitude,data.restaurants[i].location.longitude);
+
 
                     var infowindow = new google.maps.InfoWindow({
-                        content: "<b>"+data.restaurants[i].name+'</b>'
-                    });
-
-                    var marker = new google.maps.Marker({
-                        icon: "mapicons/"+data.restaurants[i].icon_type+".png",
-                        position: postition,
-                        map: gmap.map,
-                        title: data.restaurants[i].name
+                        content: '<b>Velocidad:'+data.last_report.speed+'</b>'
                     });
                     infowindow.open(gmap.map, marker);
 
                     google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,marker);
+                        infowindow.open(gmap.map,marker);
                     });
 
-                }*/
+
             }
         });
 
