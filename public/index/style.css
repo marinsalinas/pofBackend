@@ -160,7 +160,11 @@
 		.box h2,
 		.box-home h2{font-size: 50px; color: #ffffff; font-weight:300;text-align: center}
 		.box p,
-        .box-home p{font-size: 20px; color: #c0c0c0; font-weight:300;text-align: center; margin: 0;}
+        .box-home p{font-size: 20px; color: #132A37;
+            -webkit-text-fill-color:  #132A37; /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: #21516a;
+            font-weight:bold;text-align: center; margin: 0;}
 		.end h2{color:#fff}
 
 		.localiza h2{font-size: 50px; color: #ffa726; font-weight:300;text-align: center}
@@ -188,7 +192,7 @@
 		.box-home h2{font-size: 25px; color: #ffffff; font-weight:300;text-align: center}
 
         .box p,
-        .box-home p{font-size: 15px; color: #c0c0c0; font-weight:300;text-align: center; margin: 0;}
+        .box-home p{font-size: 15px; color: #132A37;  font-weight:bold; text-align: center; margin: 0;}
 
         .localiza h2{font-size: 25px; color: #ffa726; font-weight:300;text-align: center}
         .localiza p{color: #ff9800; font-family: Roboto-Bold}
