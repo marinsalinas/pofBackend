@@ -113,7 +113,7 @@ class DevicesController extends BaseController
         return Redirect::route('devices.index');
 
     }
-
+//CHIDO
     public function position($id){
         $dev= Devices::find($id);
         $dev->last_report = LastReport::where('idDevice', '=', $dev->imei)->get()->first();
