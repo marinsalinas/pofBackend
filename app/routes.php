@@ -49,6 +49,7 @@ Route::group(array('before' => 'auth'), function () {
 
     Route::resource('restaurants', 'RestaurantAPIController');
     Route::resource('orders', 'OrdersAPIController');
+    Route::resource('device', 'DevicesAPIController');
 
 
 });
