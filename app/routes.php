@@ -33,6 +33,7 @@ Route::group(array('before' => 'auth'), function () {
     Route::resource('restaurant', 'RestaurantController');
     Route::resource('menu', 'MenuController');
     Route::resource('devices', 'DevicesController');
+    Route::get('devices/position/{id}', 'DevicesController@position');
     Route::resource('admins', 'AdminController');
     Route::resource('orders', 'OrdersController');
 });

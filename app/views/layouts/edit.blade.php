@@ -18,7 +18,6 @@
 
     <!-- SB Admin CSS - Include with every page -->
     <link href="../../css/sb-admin.css" rel="stylesheet">
-    <script type="application/javascript" src="../../js/map/map.js"></script>
 </head>
 
 <body>
@@ -129,6 +128,11 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="../../js/demo/dashboard-demo.js"></script>
+     @if(isset($view) && $view == 'devices'))
+        @yield('script')
+    @else
+        <script type="application/javascript" src="../../js/map/map.js"></script>
+    @endif
 
 </body>
 

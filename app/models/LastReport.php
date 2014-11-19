@@ -28,9 +28,9 @@ class LastReport extends Eloquent {
     public function getPositionAttribute(){
         $idDevice = $this->attributes['idDevice'];
         //$wkt = DB::table($this->table)->find($idDevice, array(DB::raw('Y(position) AS latitude, X(position) AS longitude')));
-        $wkt = DB::select(DB::raw("select Y(position) AS latitude, X(position) AS longitude from LastReport where idDevice = {$idDevice}"));
+        $wkt = DB::select(DB::raw("select Y(position) AS latitude, X(position) AS longitude from LastReport where idDevice = {$idDevice} limit 1"));
 
-        $location = $wkt;
+        $location = $wkt[0];
         return $location;
     }
 

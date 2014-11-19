@@ -38,7 +38,7 @@ class DevicesController extends BaseController
 
         $device = Devices::whereName($name)->first();
 
-        return View::make('devices.edicion',['device' => $device],['admins' => $admins]);
+        return View::make('devices.edicion',['device' => $device],['admins' => $admins, 'view'=>'devices']);
 
     }
 
@@ -111,6 +111,13 @@ class DevicesController extends BaseController
         $device->delete();
 
         return Redirect::route('devices.index');
+
+    }
+
+    public function position($id){
+        $dev= Devices::find($id);
+        $dev->last_report = LastReport::where('idDevice', '=', $dev->imei)->get()->first();
+        return Response::json(array('error' => false, 'last_report'=> $dev->last_report), 200);
 
     }
 
