@@ -170,4 +170,22 @@ class OrdersAPIController extends \BaseController {
     }
 
 
+    public function prediction(){
+        $validacion = Validator::make(Input::all(), [
+            'latitude' => 'required',
+            'longitude' => 'required'
+        ]);
+
+        if ($validacion->fails()) {
+
+            return Response::json(array('error'=>true, 'messages'=>$validacion->messages()),400);
+        }
+
+
+
+
+        return Response::json(array('error'=> false, 'input'=>Input::all(), 'user'=>Auth::user()->user()), 200);
+    }
+
+
 }
