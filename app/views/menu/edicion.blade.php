@@ -31,6 +31,17 @@
                                             </select>
                                 {{$errors->first('restaurant_id')}}
                             </div>
+                            <div class="form-group">
+                                                            Comida <select name="food_id">
+                                                                @foreach($foods as $food)
+                                                                            <option value="{{$food->id}}" @if($food->id==$product->food_id) selected=yes @endif>
+                                                                            {{$food->food_name}}
+                                                                            </option>
+                                                                @endforeach
+                                                                        </select>
+                                                            {{$errors->first('food_id')}}
+                                                        </div>
+
                                 <div class="form-group">
                                     {{Form::label('product','Nombre del Platillo: ')}}
                                     {{Form::input('text','product', $product->product,array('class'=>'form-control'))}}

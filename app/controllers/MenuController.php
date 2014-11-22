@@ -16,8 +16,8 @@ class MenuController extends BaseController
         $admins = Adminusr::all();
 
         $restaurants = Restaurant::all();
-
-        return View::make('menu.create',['admins' => $admins],['restaurants' => $restaurants]);
+        $foods = Food::all();
+        return View::make('menu.create',['admins' => $admins],['restaurants' => $restaurants, 'foods'=>$foods]);
 
     }
 
@@ -27,8 +27,8 @@ class MenuController extends BaseController
         $admins = Adminusr::all();
 
         $product = Menu::whereProduct($comida)->first();
-
-        return View::make('menu.edicion',['product' => $product],['admins' => $admins]);
+        $food = Food::all();
+        return View::make('menu.edicion',['product' => $product],['admins' => $admins, 'foods'=>$food]);
 
     }
 
@@ -40,7 +40,8 @@ class MenuController extends BaseController
             'restaurant_id' => 'required',
             'product' => 'required',
             'price' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'food_id'=>'required'
 
         ]);
 
@@ -57,6 +58,7 @@ class MenuController extends BaseController
         $menu->product=Input::get('product');
         $menu->price=Input::get('price');
         $menu->description=Input::get('description');
+        $menu->food_id = Input::get('food_id');
         $newFile = NULL;
         $removeImg = NULL;
         if($file != NULL){
@@ -85,7 +87,8 @@ class MenuController extends BaseController
             'product' => 'required',
             'price' => 'required',
             'description' => 'required',
-            'photo' => 'required'
+            'photo' => 'required',
+            'food_id'=>'required'
         ]);
 
         if ($validacion->fails()) {
@@ -96,6 +99,7 @@ class MenuController extends BaseController
         $menu = new Menu;
         $newFileName = str_replace(' ', '', trim(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
         $menu->restaurant_id=Input::get('restaurant_id');
+        $menu->food_id = Input::get('food_id');
         $menu->product=Input::get('product');
         $menu->price=Input::get('price');
         $menu->description=Input::get('description');

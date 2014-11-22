@@ -19,6 +19,16 @@
                                 </select>
                                 {{$errors->first('restaurant_id')}}
                             </div>
+                            <div class="form-group">
+                                Comida <select name="food_id">
+                                    @foreach($foods as $food)
+                                                <option value="{{$food->id}}">
+                                                {{$food->food_name}}
+                                                </option>
+                                    @endforeach
+                                            </select>
+                                {{$errors->first('food_id')}}
+                            </div>
                                 <div class="form-group">
                                     {{Form::input('text','product', null,array('class'=>'form-control','placeholder'=>'Ingrese el Nombre de la comida'))}}
                                     {{$errors->first('product')}}

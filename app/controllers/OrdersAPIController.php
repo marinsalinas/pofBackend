@@ -181,10 +181,7 @@ class OrdersAPIController extends \BaseController {
             return Response::json(array('error'=>true, 'messages'=>$validacion->messages()),400);
         }
 
-
-
-
-        return Response::json(array('error'=> false, 'input'=>Input::all(), 'user'=>Auth::user()->user()), 200);
+        return Response::json(array('error'=> false, 'food'=>Food::all()), 200);
     }
 
 
