@@ -81,14 +81,14 @@ class RestaurantController extends BaseController
             'description' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
-            'photo' => 'required'
+
         ]);
 
         if ($validacion->fails()) {
 
             return Redirect::back()->withInput()->withErrors($validacion);
         }
-        $newFileName = str_replace(' ', '',(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
+        //$newFileName = str_replace(' ', '',(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
         $restaurant = Restaurant::find($id);
         $restaurant->name = Input::get('name');
         $restaurant->textaddress = Input::get('textaddress');
@@ -96,11 +96,21 @@ class RestaurantController extends BaseController
         $restaurant->type=Input::get('type');
         $restaurant->description= Input::get('description');
         $restaurant->location = array('lat'=>Input::get('latitude'), 'lng'=>Input::get('longitude'));
-        $removeImg = $restaurant->image_url;
-        $restaurant->image_url = $newFileName;
-        if($restaurant->save()){
+
+        $newFile = NULL;
+        $removeImg = NULL;
+        if($file != NULL){
+            $newFile = str_replace(' ', '',(Input::get("name")."_".microtime().".".Input::file("photo")->getClientOriginalExtension()));
+            $removeImg = $restaurant->image_url;
+            $restaurant->image_url = $newFile;
+        }
+
+
+
+
+        if($restaurant->save() && $file != null){
             File::delete("uploads/".$removeImg);
-            $file->move("uploads",$newFileName);
+            $file->move("uploads",$newFile);
         }
 
         return Redirect::route('restaurant.index');

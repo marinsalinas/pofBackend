@@ -123,6 +123,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'Toin0u\Geocoder\GeocoderServiceProvider'
 	),
 
 	/*
@@ -190,5 +191,6 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Geocoder'        => 'Toin0u\Geocoder\GeocoderFacade'
 	),
 );

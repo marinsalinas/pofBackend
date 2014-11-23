@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "cartalyst/sentry": "2.1.*",
-        "ollieread/multiauth": "dev-master"
+        "ollieread/multiauth": "dev-master",
+        "toin0u/geocoder-laravel": "@stable"
 	},
 	"autoload": {
 		"classmap": [

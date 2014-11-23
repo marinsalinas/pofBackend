@@ -32,7 +32,7 @@ class Address extends Eloquent{
     }
 
     public function setLocationAttribute($value){
-        $this->attributes['location'] = DB::raw("GeomFromText('POINT({$value['lng']} {$value['lat']})')");
+            $this->attributes['location'] = DB::raw("GeomFromText('POINT({$value['lng']} {$value['lat']})')");
     }
 
 

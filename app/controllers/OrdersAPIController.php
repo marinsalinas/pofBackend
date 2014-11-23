@@ -173,15 +173,90 @@ class OrdersAPIController extends \BaseController {
     public function prediction(){
         $validacion = Validator::make(Input::all(), [
             'latitude' => 'required',
-            'longitude' => 'required'
+            'longitude' => 'required',
+            'food_hour' =>'required'
         ]);
 
         if ($validacion->fails()) {
 
             return Response::json(array('error'=>true, 'messages'=>$validacion->messages()),400);
         }
+        if(Input::get('food_hour')< 0 || Input::get('food_hour')>2){
+            return Response::json(array('error'=>true, 'message'=>'Horario de Comida incorrecto Desayuno 0, Comida 1, Cena 2'),400);
+        }
 
-        return Response::json(array('error'=> false, 'food'=>Food::all()), 200);
+
+        $lon = Input::get('longitude');
+        $lat = Input::get('latitude');
+        global $food_id;
+        global $geocode;
+        try {
+            $geocode = Geocoder::reverse($lat, $lon);
+            // The GoogleMapsProvider will return a result
+
+        } catch (\Exception $e) {
+            // No exception will be thrown here
+            echo $e->getMessage();
+        }
+
+        $zip = $geocode->getZipcode();
+
+
+
+
+        $fichero_entrenamiento = (dirname(__FILE__) . "/menuReference.net");
+        if (!is_file($fichero_entrenamiento))
+            die("No ha sido creado el documento");
+
+        $rna = fann_create_from_file($fichero_entrenamiento);
+        if (!$rna)
+            die("No se pudo crear ANN");
+
+        $divisor = 1;
+
+        for($i = 0;$i<strlen($zip);$i++){
+            $divisor *= 10;
+        }
+
+        $newZip = $zip/$divisor;
+
+        //Construir el array de entrada
+
+
+        $entrada = [0, 0, 1, 0, 1, 0, 0, $newZip];
+
+        $output = fann_run($rna, $entrada);
+        fann_destroy($rna);
+        $food_id = intval(round($output[0],2)*100);
+
+
+
+
+
+        $db = DB::table('restaurants')
+            ->join('menus', function($join)
+            {
+                global $food_id;
+                $join->on('restaurants.id', '=', 'menus.restaurant_id')
+                    ->where('menus.food_id', '=', $food_id);
+            })
+            ->select(DB::raw('ST_Distance(GeomFromText(\'POINT('.$lon.' '.$lat.')\'), restaurants.location) as distance, menus.id, menus.restaurant_id'))
+            ->orderBy(DB::raw('ST_Distance(GeomFromText(\'POINT('.$lon.' '.$lat.')\'), restaurants.location)'))
+            ->get();
+
+
+            $respone = array();
+            foreach ($db as $row) {
+                $restaurant = Restaurant::find($row->restaurant_id);
+                $menu_item = Menu::find($row->id);
+                $menu_item->food;
+                array_push($respone, array('menu_item' => $menu_item, 'restaurant'=>$restaurant, 'distance'=>$row->distance));
+            }
+
+
+       // dd($db);
+
+        return Response::json(array('error'=> false, '$recomendations'=>$respone), 200);
     }
 
 
