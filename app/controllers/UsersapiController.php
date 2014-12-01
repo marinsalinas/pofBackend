@@ -20,6 +20,8 @@ class UsersapiController extends \BaseController{
             'email' => 'required|email|unique:users',
             'phone' => 'required|unique:users,phone',
             'fullname' => 'required',
+            'gender' => 'required',
+            'birthday'=>'required|date',
         ]);
 
         if ($validacion->fails()) {
@@ -32,6 +34,8 @@ class UsersapiController extends \BaseController{
         $user->email = Input::get('email');
         $user->fullname = Input::get('fullname');
         $user->phone = Input::get('phone');
+        $user->gender = Input::get('gender');
+        $user->birthday = Input::get('birthday');
         $user->save();
 
         return Response::json(array('error'=>false, 'user'=>$user), 200);
@@ -49,6 +53,8 @@ class UsersapiController extends \BaseController{
             'email' => 'required|email|unique:users,email,'.$id,
             'phone' => 'required|unique:users,phone,'.$id,
             'fullname' => 'required',
+            'gender' => 'required',
+            'birthday'=>'required|date',
         ]);
 
         if($validador->fails()) {
@@ -59,6 +65,8 @@ class UsersapiController extends \BaseController{
         $user->email = Input::get('email');
         $user->fullname = Input::get('fullname');
         $user->phone = Input::get('phone');
+        $user->gender = Input::get('gender');
+        $user->birthday = Input::get('birthday');
         $user->save();
 
         return Response::json(array('error'=>false, 'user'=>$user), 200);

@@ -200,9 +200,8 @@ class OrdersAPIController extends \BaseController {
         }
 
         $zip = $geocode->getZipcode();
-
-
-
+        $food_hour = Input::get('food_hour');
+        $user = Auth::user()->user();
 
         $fichero_entrenamiento = (dirname(__FILE__) . "/menuReference.net");
         if (!is_file($fichero_entrenamiento))
@@ -213,18 +212,50 @@ class OrdersAPIController extends \BaseController {
             die("No se pudo crear ANN");
 
         $divisor = 1;
-
+        if($zip == NULL || $zip == 0){$zip = 66455;}
         for($i = 0;$i<strlen($zip);$i++){
             $divisor *= 10;
         }
 
-        $newZip = $zip/$divisor;
+        $food_hour_array = NULL;
+        if($food_hour == 0){
+            $food_hour_array = array(0,0,1);
+        }elseif($food_hour == 1){
+            $food_hour_array = array(0,1,0);
+        }elseif($food_hour = 2){
+            $food_hour_array = array(1,0,0);
+        }else{
+            $food_hour_array = array(0,0,1);
+        }
+
+        $gender_array = NULL;
+        if($user->gender == 'M'){
+            $gender_array = array(1);
+        }else{
+            $gender_array = array(0);
+        }
+
+        $years_ago = date_diff(date_create($user->birthday), date_create('today'))->y;
+
+        $years_array = NULL;
+        if($years_ago < 20){
+            $years_array = array(0,0,1);
+        }elseif($years_ago >= 21 && $years_ago < 25){
+            $years_array = array(0,1,0);
+        }elseif($years_ago >= 25){
+            $years_array = array(1,0,0);
+        }else{
+            $years_array = array(0,0,1);
+        }
+
+
+        $newZip = array($zip/$divisor);
 
         //Construir el array de entrada
 
 
-        $entrada = [0, 0, 1, 0, 1, 0, 0, $newZip];
-
+        //$entrada = [0, 0, 1, 0, 1, 0, 0, $newZip];
+        $entrada = array_merge($food_hour_array, $years_array, $gender_array, $newZip);
         $output = fann_run($rna, $entrada);
         fann_destroy($rna);
         $food_id = intval(round($output[0],2)*100);
@@ -240,8 +271,8 @@ class OrdersAPIController extends \BaseController {
                 $join->on('restaurants.id', '=', 'menus.restaurant_id')
                     ->where('menus.food_id', '=', $food_id);
             })
-            ->select(DB::raw('ST_Distance(GeomFromText(\'POINT('.$lon.' '.$lat.')\'), restaurants.location) as distance, menus.id, menus.restaurant_id'))
-            ->orderBy(DB::raw('ST_Distance(GeomFromText(\'POINT('.$lon.' '.$lat.')\'), restaurants.location)'))
+            ->select(DB::raw('pointDistance(GeomFromText(\'POINT('.$lon.' '.$lat.')\'), restaurants.location) as distance, menus.id, menus.restaurant_id'))
+            ->orderBy(DB::raw('ST_Distance(GeomFromText(\'POINT('.$lon.' '.$lat.')\'), restaurants.location)'))->take(2)
             ->get();
 
 
