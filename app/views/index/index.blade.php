@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href=" favicon.ico" type="image/x-icon">
-    <title>Path Of The Food</title>
+    <title>track.eat | Pof</title>
 
 
     <link href="index/style.css" rel="stylesheet">
