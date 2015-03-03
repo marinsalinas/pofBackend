@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '104.236.35.103',
 			'database'  => 'pof',
 			'username'  => 'pofServer',
 			'password'  => 'pathofthefoodcomm',
