@@ -121,8 +121,8 @@
 
 	         	<div class="box-home">
 
-		         	<h2>Path Of The Food</h2>
-                    <p>Tu comida en tiempo y forma</p>
+		         	<h2>Track.eat</h2>
+                    <p>The path of the food</p>
 
 	         	</div>
 
