@@ -23,13 +23,23 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'homestead',
+			'database'  => 'pof',
 			'username'  => 'homestead',
 			'password'  => 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+		/*'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'marinsalinas.com',
+			'database'  => 'pof',
+			'username'  => 'pofServer',
+			'password'  => 'pathofthefoodcomm',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),*/
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
