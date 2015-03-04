@@ -6,8 +6,9 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+_ide_helper.php
 
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+ss# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
 *.iml
 
