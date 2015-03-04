@@ -32,7 +32,7 @@
 
 		<div
 			class="parallax-image parallax-image-100"
-			style="background-image:url(index/img/bcg_slide-3.jpg)"
+			style="background-image:url(index/img/bcg_slide-8.jpg)"
 			data-anchor-target="#home"
 			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
 			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
@@ -118,12 +118,12 @@
 
 
 		<!-- Home /-->
-		<div id="home" class="gap gap-100" style="background-image:url(index/img/bcg_slide-3.jpg);" id="top">
+		<div id="home" class="gap gap-100" style="background-image:url(index/img/bcg_slide-6.jpg);" id="top">
 
 	         	<div class="box-home">
 
-		         	<h2>track.eat</h2>
-                    <p>The path of the food</p>
+		         	<h2 class="namelogo">track.eat</h2>
+                    <p class="slogan">The path of the food</p>
 
 	         	</div>
 
