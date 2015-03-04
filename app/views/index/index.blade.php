@@ -107,6 +107,7 @@
 			<li><a href="#home">Pof</a></li>
 			<li><a href="#ordena">Ordena</a></li>
             <li><a href="#localiza">Localiza</a></li>
+            <li><a href="/login">Entra</a></li>
 
 		</ul>
 
@@ -121,7 +122,7 @@
 
 	         	<div class="box-home">
 
-		         	<h2>Track.eat</h2>
+		         	<h2>track.eat</h2>
                     <p>The path of the food</p>
 
 	         	</div>
