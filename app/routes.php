@@ -51,7 +51,13 @@ Route::group(array('before' => 'auth'), function () {
     Route::resource('orders', 'OrdersAPIController');
     Route::post('prediction', 'OrdersAPIController@prediction');
     Route::resource('device', 'DevicesAPIController');
+    Route::resource('shipping', 'ShippingController');
 
 
+
+/*        Event::listen('illuminate.query', function($sql){
+            echo $sql."------";
+        });
+*/
 });
 
