@@ -29,6 +29,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Address', 'user_id');
     }
 
+    public function getCreatedAtAttribute(){
+        return date('c', strtotime($this->attributes['created_at']));
+    }
+
+    public function getUpdatedAtAttribute(){
+        return date('c', strtotime($this->attributes['created_at']));
+    }
+
+
+
     public function orders(){
         return $this->hasMany('Orders', 'user_id');
     }
