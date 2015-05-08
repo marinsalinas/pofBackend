@@ -20,9 +20,26 @@ class ShippingController extends \BaseController {
 	public function index()
     {
 
-        $orders = Auth::user()->getUser()->orders()->where('status', '!=','Entregado')->with('device.last_report')->get();
+       // $orders = Auth::user()->getUser()->orders()->where('status', '!=','Entregado')->with('device.report')->get();
         //$orders = User::find(2)->orders()->where('status', '!=','Entregado')->with('device.last_report')->get();
-        return $orders;
+
+        $orders = Auth::user()->getUser()->orders()->where('status', '!=','Entregado')->with('device.last_report')->get();
+
+       // return $orders;
+
+        for($i = 0; $i<=0; $i++){
+
+            //return $orders[0];
+            //return $orders[0]->device->id;
+            $report =  Report::where('idDevice', '=', $orders[0]->device->imei)
+                ->where('eventDate', '>=', $orders[0]->created_at)
+                ->get();
+
+            return $orders[0]->created_at . "<=" . $report[1]->eventDate;
+        }
+die();
+
+ //       return $orders;
 
 	}
 

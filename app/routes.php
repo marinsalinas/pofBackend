@@ -55,9 +55,9 @@ Route::group(array('before' => 'auth'), function () {
 
 
 
-/*        Event::listen('illuminate.query', function($sql){
+    /*   Event::listen('illuminate.query', function($sql){
             echo $sql."------";
-        });
-*/
+        });*/
+
 });
 

@@ -16,5 +16,9 @@ class Devices extends Eloquent {
         return $this->hasOne('LastReport', 'idDevice', 'imei');
     }
 
+    public function report(){
+        return $this->hasMany('Report', 'idDevice','imei');
+    }
+
 
 }
