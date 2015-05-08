@@ -107,7 +107,7 @@
 			<li><a href="#home">Pof</a></li>
 			<li><a href="#ordena">Ordena</a></li>
             <li><a href="#localiza">Localiza</a></li>
-            <li><a href="/login">Entra</a></li>
+            <li><a href="/login">Login</a></li>
 
 		</ul>
 
