@@ -10,7 +10,7 @@
 		        <div class="login-wrap">
 {{Form::text('username', null,array('class'=>'form-control','placeholder'=>'Username','id'=>'inputEmail'))}}
 		            <br>
-{{Form::password('password',array('class'=>'form-control','placeholder'=>'Password','id'=>"inputPassword"))}}
+{{Form::password('password',array('class'=>'form-control','placeholder'=>'Password','id'=>"inputPassword",'required'=>'required'))}}
 <br>
 {{Form::submit('Acceder',array('class'=>'btn btn-theme btn-block'))}}
 </div>
