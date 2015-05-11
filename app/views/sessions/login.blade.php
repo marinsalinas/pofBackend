@@ -5,10 +5,8 @@
 {{Form::open(['url' => 'store','class'=>'form-login'])}}
 		        <h2 class="form-login-heading">
 		        <img src="img/poffull2.png" style="max-width:20%;
-                                                            max-height:100%; position: relative; margin-bottom: 10px;"></br>
-Accede al sitio
-		        </h2>
-
+		        max-height:100%; position: relative; margin-bottom: 10px;"><br>
+                Acceso al sitio</h2>
 		        <div class="login-wrap">
 {{Form::text('username', null,array('class'=>'form-control','placeholder'=>'Username','id'=>'inputEmail'))}}
 		            <br>
