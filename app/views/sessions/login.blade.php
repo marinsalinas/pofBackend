@@ -3,7 +3,7 @@
 
 
 {{Form::open(['url' => 'store','class'=>'form-signin'])}}
-        <h2 class="form-signin-heading">Acceso al sitio</h2>
+        <h2 class="form-signin-heading" style="color: #ffffff">Acceso al sitio</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
 
 {{Form::text('username', null,array('class'=>'form-control','placeholder'=>'Username','id'=>'inputEmail'))}}
