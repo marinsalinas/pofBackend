@@ -211,69 +211,49 @@
                       </a>
                   </li>
 
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>UI Elements</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="general.html">General</a></li>
-                          <li><a  href="buttons.html">Buttons</a></li>
-                          <li><a  href="panels.html">Panels</a></li>
-                      </ul>
-                  </li>
+                 <li class="sub-menu">
+                                       <a href="javascript:;" >
+                                           <i class="fa fa fa-cutlery"></i>
+                                           <span>Comidas</span>
+                                       </a>
+                                       <ul class="sub">
+                                           <li><a  href="general.html">General</a></li>
+                                           <li><a  href="buttons.html">Buttons</a></li>
+                                           <li><a  href="panels.html">Panels</a></li>
+                                       </ul>
+                                   </li>
+                                   <li class="sub-menu">
+                                       <a href="javascript:;" >
+                                           <i class="fa fa-coffee"></i>
+                                           <span>Restaurantes</span>
+                                       </a>
+                                       <ul class="sub">
+                                           <li><a  href="calendar.html">Calendar</a></li>
+                                           <li><a  href="gallery.html">Gallery</a></li>
+                                           <li><a  href="todo_list.html">Todo List</a></li>
+                                       </ul>
+                                   </li>
+                                   <li class="sub-menu">
+                                       <a href="javascript:;" >
+                                           <i class="fa fa-cog"></i>
+                                           <span>Dispositivos</span>
+                                       </a>
+                                       <ul class="sub">
+                                           <li><a  href="blank.html">Blank Page</a></li>
+                                           <li><a  href="login.html">Login</a></li>
+                                           <li><a  href="lock_screen.html">Lock Screen</a></li>
+                                       </ul>
+                                   </li>
+                                   <li class="sub-menu">
+                                       <a href="javascript:;" >
+                                           <i class="fa fa-map-marker"></i>
+                                           <span>Pedidos</span>
+                                       </a>
+                                       <ul class="sub">
+                                           <li><a  href="form_component.html">Form Components</a></li>
+                                       </ul>
+                                   </li>
 
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Components</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>Extra Pages</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Blank Page</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                          <li><a  href="lock_screen.html">Lock Screen</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Forms</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="form_component.html">Form Components</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-th"></i>
-                          <span>Data Tables</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="basic_table.html">Basic Table</a></li>
-                          <li><a  href="responsive_table.html">Responsive Table</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class=" fa fa-bar-chart-o"></i>
-                          <span>Charts</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="morris.html">Morris</a></li>
-                          <li><a  href="chartjs.html">Chartjs</a></li>
-                      </ul>
-                  </li>
 
               </ul>
               <!-- sidebar menu end-->
@@ -373,7 +353,7 @@
 									<div class="col-sm-6 col-xs-6"></div>
 	                      		</div>
 	                      		<div class="centered">
-										<img src="assets/img/product.png" width="120">
+										<img src="assets/img/burgur.png" width="120">
 	                      		</div>
                       		</div>
                       	</div><!-- /col-md-4 -->
@@ -641,7 +621,7 @@
             // (string | mandatory) the heading of the notification
             title: 'Nuevo dashboard',
             // (string | mandatory) the text inside the notification
-            text: 'Estamos trabajando en el dieño',
+            text: 'Estamos trabajando en el diseño',
             // (string | optional) the image to display on the left
             image: 'assets/img/poffull2.png',
             // (bool | optional) if you want it to fade out on its own or just sit there
