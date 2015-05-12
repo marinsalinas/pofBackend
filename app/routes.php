@@ -36,6 +36,8 @@ Route::group(array('before' => 'auth'), function () {
     Route::get('devices/position/{id}', 'DevicesController@position');
     Route::resource('admins', 'AdminController');
     Route::resource('orders', 'OrdersController');
+    // trabajare pormientras en esta ruta para el nuevo diseño
+    Route::resource('dashboard','DashBoardController');
 });
 
     //Rutas Para API RESTFUL

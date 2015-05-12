@@ -8,15 +8,11 @@
 
 @section('ocho')
 
-                <div class="col-lg-8">
-
-                    <!-- /.panel -->
-                </div>
-
 @stop
 
 @section('cuatro')
-                <div class="col-lg-4">
+
+                <div class="col-lg-8">
 
     <h1 style="text-align: center">Admins</h1>
       @foreach($admins as $admin)
@@ -37,4 +33,22 @@
 
       @endforeach
       </div>
+
+
+                <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-users"></i>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                {{link_to ("dashboard", "Nuevo DASHBOARD...!!!!!")}}
+            <!-- /.panel-body -->
+        </div>
+
+                    <!-- /.panel -->
+                </div>
+
 @stop

@@ -110,9 +110,7 @@
             @yield('ocho')
                 <!-- /.col-lg-8 -->
                         @yield('cuatro')
-                            </div>
-                            </div>
-                            </div>
+
                 <!-- /.col-lg-4 -->
             </div>
             <!-- /.row -->
