@@ -216,42 +216,24 @@
                                            <i class="fa fa fa-cutlery"></i>
                                            <span>Comidas</span>
                                        </a>
-                                       <ul class="sub">
-                                           <li><a  href="general.html">General</a></li>
-                                           <li><a  href="buttons.html">Buttons</a></li>
-                                           <li><a  href="panels.html">Panels</a></li>
-                                       </ul>
                                    </li>
                                    <li class="sub-menu">
                                        <a href="javascript:;" >
                                            <i class="fa fa-coffee"></i>
                                            <span>Restaurantes</span>
                                        </a>
-                                       <ul class="sub">
-                                           <li><a  href="calendar.html">Calendar</a></li>
-                                           <li><a  href="gallery.html">Gallery</a></li>
-                                           <li><a  href="todo_list.html">Todo List</a></li>
-                                       </ul>
                                    </li>
                                    <li class="sub-menu">
                                        <a href="javascript:;" >
                                            <i class="fa fa-cog"></i>
                                            <span>Dispositivos</span>
                                        </a>
-                                       <ul class="sub">
-                                           <li><a  href="blank.html">Blank Page</a></li>
-                                           <li><a  href="login.html">Login</a></li>
-                                           <li><a  href="lock_screen.html">Lock Screen</a></li>
-                                       </ul>
                                    </li>
                                    <li class="sub-menu">
                                        <a href="javascript:;" >
                                            <i class="fa fa-map-marker"></i>
                                            <span>Pedidos</span>
                                        </a>
-                                       <ul class="sub">
-                                           <li><a  href="form_component.html">Form Components</a></li>
-                                       </ul>
                                    </li>
 
 
