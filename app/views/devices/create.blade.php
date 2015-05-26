@@ -55,7 +55,7 @@
 
  @section('seccion')
   <li class="mt">
-                       <a class="active" href="../dashboard">
+                       <a href="../dashboard">
                            <i class="fa fa-dashboard"></i>
                            <span>Dashboard</span>
                        </a>
