@@ -26,7 +26,6 @@
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
 
-    <script type="application/javascript" src="../js/map/map.js"></script>
 
 
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -294,7 +293,8 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
+    <script type="application/javascript" src="../js/map/map.js"></script>
 
- 
+
   </body>
 </html>
