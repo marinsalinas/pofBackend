@@ -6,14 +6,6 @@ class RestaurantController extends BaseController
     public function index()
     {
 
-        /*$restaurant = new Restaurant;
-        $restaurant->name='Mudos';
-        $restaurant->textaddress='San Pedro';
-        $restaurant->onlycash=1;
-        $restaurant->type='Mexicano';
-        $restaurant->description='El mejor de toda Lindavista';
-        $restaurant->save();*/
-
         $restaurants = Restaurant::all();
 
         $admins = Adminusr::all();

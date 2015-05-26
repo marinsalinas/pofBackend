@@ -6,7 +6,7 @@ class SessionsController extends BaseController
     {
         if (Auth::admin()->check()) {
 
-            return Redirect::to('admins');
+            return Redirect::to('dashboard');
         }
 
         return View::make('sessions.login');
