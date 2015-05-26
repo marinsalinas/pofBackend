@@ -46,7 +46,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>TRACK EAT</b></a>
+            <a class="logo" href="../dashboard"><b>TRACK EAT</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -205,7 +205,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="/"><img src="../../assets/img/poffull2.png" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><img src="../../assets/img/poffull2.png" class="img-circle" width="60"></p>
               	  <h5 class="centered"></h5>
 
                  @yield('seccion')
