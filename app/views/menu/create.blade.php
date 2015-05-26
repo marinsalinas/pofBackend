@@ -62,14 +62,14 @@
 
  @section('seccion')
   <li class="mt">
-                       <a class="active" href="../dashboard">
+                       <a  href="../dashboard">
                            <i class="fa fa-dashboard"></i>
                            <span>Dashboard</span>
                        </a>
                    </li>
 
                   <li class="sub-menu">
-                                       <a href=../"menu" >
+                                       <a class="active" href=../"menu" >
                                             <i class="fa fa fa-cutlery"></i>
                                             <span>Comidas</span>
                                         </a>

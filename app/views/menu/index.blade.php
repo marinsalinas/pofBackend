@@ -39,7 +39,7 @@
                   </li>
 
                  <li class="sub-menu">
-                                      <a href="menu" >
+                                      <a class="active" href="menu" >
                                            <i class="fa fa fa-cutlery"></i>
                                            <span>Comidas</span>
                                        </a>

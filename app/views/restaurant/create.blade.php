@@ -5,8 +5,7 @@
           <section class="wrapper">
 
               <div class="row">
-    <div class="container">
-        <div class="row">
+
         <div class="col-lg-12">
                 <div class="form-panel">
                     <div class="panel-heading">
@@ -62,8 +61,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div></section></section>
+
+        </section></section>
   @stop
  @section('seccion')
   <li class="mt">
@@ -85,7 +84,7 @@
 
                                     </li>
                                     <li class="sub-menu">
-                                        <a href="../restaurant" >
+                                        <a class="active" href="../restaurant" >
                                             <i class="fa fa-coffee"></i>
                                             <span>Restaurantes</span></a>
                                          <ul class="sub">

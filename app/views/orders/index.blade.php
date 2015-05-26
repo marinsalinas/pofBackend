@@ -152,7 +152,7 @@
 
                                    </li>
                                    <li class="sub-menu">
-                                       <a href="orders" >
+                                       <a class="active" href="orders" >
                                            <i class="fa fa-map-marker"></i>
                                            <span>Pedidos</span>
                                        </a>

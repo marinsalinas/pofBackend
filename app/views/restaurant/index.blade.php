@@ -77,7 +77,7 @@
 
                                    </li>
                                    <li class="sub-menu">
-                                       <a href="restaurant" >
+                                       <a class="active" href="restaurant" >
                                            <i class="fa fa-coffee"></i>
                                            <span>Restaurantes</span></a>
                                         <ul class="sub">
