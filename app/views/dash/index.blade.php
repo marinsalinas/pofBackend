@@ -388,7 +388,7 @@
             // (string | mandatory) the heading of the notification
             title: 'Nuevo dashboard',
             // (string | mandatory) the text inside the notification
-            text: 'Estamos trabajando en el diseño',
+            text: 'Bienvenido',
             // (string | optional) the image to display on the left
             image: 'assets/img/poffull2.png',
             // (bool | optional) if you want it to fade out on its own or just sit there
